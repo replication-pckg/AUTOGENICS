@@ -1,0 +1,693 @@
+Quartile ,Id,Extracted Code,Code with Inline Comments (Gemini),Accuracy,Adequacy,Conciseness,Usefulness,Code with Inline Comments (AUTOGENICS),AUTOGENICS Accuracy,AUTOGENICS Adequacy,AUTOGENICS Conciseness,AUTOGENICS Usefulness
+Q1,7372536,"angle = Math.atan2((double)(y2-y1), (double)(x2-x1));
+","angle = Math.atan2((double)(y2 - y1), (double)(x2 - x1)); // Calculate the angle between the two points using the atan2 function",4,3,4,3,"// Calculate the angle of the line segment
+angle = Math.atan2((double)(y2-y1), (double)(x2-x1)); ",5,4,4,4
+,11683644,"canvas.drawBitmap(b, (w - b.width()) / 2, (h - b.height()) / 2, mPaint);
+","canvas.drawBitmap(b, (w - b.width()) / 2, (h - b.height()) / 2, mPaint); // Draw the bitmap at the center of the canvas",5,4,4,4,"// Draws the image at the center of the canvas by subtracting half of the image's width and height from the canvas's width and height, respectively.
+canvas.drawBitmap(b, (w - b.width()) / 2, (h - b.height()) / 2, mPaint); ",5,4,5,4
+,8631645,"final Pattern check = Pattern.compile(""^[-a-z0-9A-Z!$%*()_\\[\\]{};:@#<>,./?\\\\|]+$"");
+","final Pattern check = // compiles a regular expression pattern to match a string
+                        Pattern.compile(""^[-a-z0-9A-Z!$%*()_\\[\\]{};:@#<>,./?\\\\|]+$"");",4,4,4,4,"// Defines a regular expression pattern for password validation
+final Pattern check = Pattern.compile(""^[-a-z0-9A-Z!$%*()_\\[\\]{};:@#<>,./?\\\\|]+$""); ",5,5,5,5
+,16406924,"v.add(0, v.remove(v.indexOf(""special"")));  
+v.add(0, v.remove(v.indexOf(""exchange"")));
+","```java
+Vector<String> v = new Vector<>();
+v.add(""special"");
+v.add(""exchange"");
+
+// Adds ""special"" to the beginning of the vector
+v.add(0, v.remove(v.indexOf(""special"")));  
+
+// Adds ""exchange"" to the beginning of the vector
+v.add(0, v.remove(v.indexOf(""exchange"")));
+```",5,4,4,3,"// Manually move ""special"" to the top of the list 
+v.add(0, v.remove(v.indexOf(""special"")));  
+// Manually move ""exchange"" to the top of the list
+v.add(0, v.remove(v.indexOf(""exchange"")));",5,4,5,4
+,39232832,"viewPager.setOffscreenPageLimit(3);
+",viewPager.setOffscreenPageLimit(3); // Sets the number of pages that should be kept in memory to three.,4,4,4,4,viewPager.setOffscreenPageLimit(3); // Keep 3 fragments in memory to prevent onCreateView from being called again when navigating back to the first fragment.,4,4,4,4
+,,,,,,,,,,,,
+Q2,6988713,"public static boolean timeIsBefore(Date d1, Date d2) {
+  DateFormat f = new SimpleDateFormat(""HH:mm:ss.SSS"");
+  return f.format(d1).compareTo(f.format(d2)) < 0;
+}
+","```java
+public static boolean timeIsBefore(Date d1, Date d2) {
+  // Create a date format object
+  DateFormat f = new SimpleDateFormat(""HH:mm:ss.SSS"");
+  // Compare the formatted strings of the dates
+  return f.format(d1).compareTo(f.format(d2)) < 0;
+}
+```",4,3,4,4,"public static boolean timeIsBefore(Date d1, Date d2) {
+  // Create a SimpleDateFormat object to format the time component of the dates
+  DateFormat f = new SimpleDateFormat(""HH:mm:ss.SSS"");
+  return f.format(d1).compareTo(f.format(d2)) < 0;
+}",5,4,4,4
+,28487379,"long startTime;
+
+long d = (System.currentTimeMillis() - startTime) * 30 / 1000;
+","```java
+// Start time in milliseconds
+long startTime;
+
+// Calculate the duration in seconds (30 minutes = 1800 seconds)
+long d = (System.currentTimeMillis() - startTime) * 30 / 1000;
+```",5,4,4,4,"long startTime;
+long d = (System.currentTimeMillis() - startTime) * 30 / 1000; // Calculate the elapsed time in milliseconds and convert it to seconds",5,5,4,5
+,38143605,"    String name = ""some person name"".trim();
+    if(name.indexOf("" "") != name.lastIndexOf("" "")) {
+        int secondSpacePos = name.indexOf("" "", name.indexOf("" "") + 1);
+        name = name.substring(0, secondSpacePos) + ""\n "" + name.substring(secondSpacePos);
+    }
+","```java
+String name = ""some person name"".trim(); // trims leading and trailing whitespace
+
+// if the name contains more than one space
+if (name.indexOf("" "") != name.lastIndexOf("" "")) {
+    int secondSpacePos = name.indexOf("" "", name.indexOf("" "") + 1); // gets the position of the second space
+
+    name = name.substring(0, secondSpacePos) + ""\n "" + name.substring(secondSpacePos); // inserts a newline character after the first space
+}
+```",5,4,4,4,"String name = ""some person name"".trim();
+    if(name.indexOf("" "") != name.lastIndexOf("" "")) { // Check if the name has more than two words
+        int secondSpacePos = name.indexOf("" "", name.indexOf("" "") + 1);
+        name = name.substring(0, secondSpacePos) + ""\n "" + name.substring(secondSpacePos); // Wrap the name after the second word
+    }",5,5,5,5
+,5351483,"long diffSeconds = diff / 1000 % 60;  
+long diffMinutes = diff / (60 * 1000) % 60; 
+long diffHours = diff / (60 * 60 * 1000);
+","long diffSeconds = diff / 1000 % 60;  // Calculate the number of seconds from the difference
+long diffMinutes = diff / (60 * 1000) % 60; // Calculate the number of minutes from the difference, after removing the seconds
+long diffHours = diff / (60 * 60 * 1000); // Calculate the number of hours from the difference, after removing the minutes and seconds",4,4,4,4,"// Calculate the difference in seconds, modulo 60 to get the remainder 
+long diffSeconds = diff / 1000 % 60;  
+// Calculate the difference in minutes, modulo 60 to get the remainder 
+long diffMinutes = diff / (60 * 1000) % 60; 
+// Calculate the difference in hours 
+long diffHours = diff / (60 * 60 * 1000);",5,4,5,4
+,22487945,"int middleStart = (myArr.length - 1) / 2;
+int middleEnd = (myArr.length - 1) - middleStart;
+int elementsToRemove = middleEnd - middleStart + 1;
+
+int[] result = new int[myArr.length - elementsToRemove];
+System.arraycopy(myArr, 0, result, 0, middleStart);
+System.arraycopy(myArr, middleEnd + 1, result, middleStart, middleStart);
+","int middleStart = (myArr.length - 1) / 2; // Calculates the starting index of the middle section of the array
+int middleEnd = (myArr.length - 1) - middleStart; // Calculates the ending index of the middle section of the array
+int elementsToRemove = middleEnd - middleStart + 1; // Calculates the number of elements to remove from the array
+
+int[] result = new int[myArr.length - elementsToRemove]; // Creates a new array with a length equal to the original array minus the number of elements to remove
+System.arraycopy(myArr, 0, result, 0, middleStart); // Copies the elements from the beginning of the original array up to the middle section into the new array
+System.arraycopy(myArr, middleEnd + 1, result, middleStart, middleStart); // Copies the elements from after the middle section of the original array into the new array",5,4,4,4,"// Calculate the starting index of the middle element(s) 
+int middleStart = (myArr.length - 1) / 2;
+/ Calculate the ending index of the middle element(s) 
+int middleEnd = (myArr.length - 1) - middleStart;
+//  Calculate the number of elements to remove 
+int elementsToRemove = middleEnd - middleStart + 1;
+
+// Create a new array with the size of the original array minus the elements to remove 
+int[] result = new int[myArr.length - elementsToRemove];
+// Copy the elements before the middle element(s) to the new array 
+System.arraycopy(myArr, 0, result, 0, middleStart);
+// Copy the elements after the middle element(s) to the new array 
+System.arraycopy(myArr, middleEnd + 1, result, middleStart, middleStart);",5,4,4,4
+,,,,,,,,,,,,
+Q3,33138610,"int i = 0;
+Scanner scnr = new Scanner(System.in);
+System.out.print(""Please enter a number: "");
+i = scnr.nextInt();
+while (i >= 1)
+{
+    System.out.println(Math.sqrt(i));
+    i--;
+}
+","int i = 0;                                   // Initialize an integer variable `i` to 0
+Scanner scnr = new Scanner(System.in);        // Create a `Scanner` object `scnr` for user input
+System.out.print(""Please enter a number: "");   // Prompt the user to enter a number
+i = scnr.nextInt();                        // Read the input number and store it in `i`
+while (i >= 1)                             // Start a `while` loop that repeats as long as `i` is greater than or equal to 1
+{
+    System.out.println(Math.sqrt(i));       // Print the square root of `i`
+    i--;                                   // Decrement `i` by 1
+}",4,3,4,3,"int i = 0;
+Scanner scnr = new Scanner(System.in); // Create a Scanner object to read input
+System.out.print(""Please enter a number: "");
+i = scnr.nextInt(); // Read the user's input and store it in the 'i' variable
+while (i >= 1)
+{
+    System.out.println(Math.sqrt(i)); // Calculate and print the square root of 'i'
+    i--; // Decrement 'i' by 1 for the next iteration
+}",5,4,4,4
+,54543505,"public static Color[][] doOperation(Color[][] imageArray) {
+    int multiplier = 2;
+    Color[][] newArray = new Color[imageArray.length*2][imageArray[0].length*2];
+
+    for(int i = 0; i < newArray.length; i++)
+        for(int j = 0; j < newArray[0].length; j++) {
+            newArray[i][j] = imageArray[i/multiplier][j/multiplier];
+        }
+    return newArray;
+}
+","```java
+public static Color[][] doOperation(Color[][] imageArray) {
+    // Set the multiplier value for resizing the image
+    int multiplier = 2;
+
+    // Create a new 2D array with the resized dimensions
+    Color[][] newArray = new Color[imageArray.length * multiplier][imageArray[0].length * multiplier];
+
+    for (int i = 0; i < newArray.length; i++) {
+        for (int j = 0; j < newArray[0].length; j++) {
+            // Assign the value from the original array to the new array, scaled by the multiplier
+            newArray[i][j] = imageArray[i / multiplier][j / multiplier];
+        }
+    }
+
+    return newArray;
+}
+```",4,3,4,4,"public static Color[][] doOperation(Color[][] imageArray) {
+    int multiplier = 2;
+    Color[][] newArray = new Color[imageArray.length*2][imageArray[0].length*2]; // Create a new array with twice the dimensions
+
+    for(int i = 0; i < newArray.length; i++)
+        for(int j = 0; j < newArray[0].length; j++) {
+            // Calculate the corresponding index in the original array based on the scaling factor
+            newArray[i][j] = imageArray[i/multiplier][j/multiplier]; 
+        }
+    return newArray;",5,4,4,5
+,30800767,"float lastX, lastY;
+
+if(sprite.getY()>=700){
+  lastX = sprite.getX();
+  lastY = sprite.getY();
+  enemyIterator.remove();
+  Pools.free(sprite);
+}
+
+System.out.println(""Removed sprite coordinates where: "" + lastX + "", "" + lastY);
+","float lastX, lastY; // Declare variables lastX and lastY to store the coordinates of the sprite before it is removed
+
+if (sprite.getY() >= 700) { // Check if the sprite's y-coordinate is greater than or equal to 700
+  lastX = sprite.getX(); // Store the sprite's x-coordinate in lastX
+  lastY = sprite.getY(); // Store the sprite's y-coordinate in lastY
+  enemyIterator.remove(); // Remove the sprite from the enemy iterator
+  Pools.free(sprite); // Free the sprite from the object pool
+}
+
+// Print the removed sprite's coordinates for informational purposes
+System.out.println(""Removed sprite coordinates where: "" + lastX + "", "" + lastY);",5,4,4,5,"float lastX, lastY;
+
+if(sprite.getY()>=700){ // Check if the sprite has reached the removal threshold
+  lastX = sprite.getX(); // Store the sprite's X coordinate before removal
+  lastY = sprite.getY(); // Store the sprite's Y coordinate before removal
+  enemyIterator.remove(); // Remove the sprite from the game
+  Pools.free(sprite); // Free the sprite from the pool
+}
+
+System.out.println(""Removed sprite coordinates where: "" + lastX + "", "" + lastY); ",5,5,5,5
+,66140255,"BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+String[] values = line.split("" "");
+int[] arr = new int[values.length];
+int sum=0;
+for (int i = 0; i < values.length; i++) {
+   arr[i] = Integer.parseInt(values[i]);
+   sum+=arr[i];
+}
+double avg = sum/arr.length;
+System.out.println(""Sum is"" + sum + "" and the average is "" + avg);
+","**BufferedReader br = new BufferedReader(new InputStreamReader(System.in));**
+// Reads input from the console
+
+**String[] values = line.split("" "");**
+// Splits the input line into an array of strings at each whitespace
+
+**int[] arr = new int[values.length];**
+// Creates an array of integers to store the converted values
+
+**int sum = 0;**
+// Initialize the sum to 0
+
+// Iterate over each string in the array of strings, convert it to an integer, add it to the sum, and store it in the array of integers
+**for (int i = 0; i < values.length; i++) {
+   arr[i] = Integer.parseInt(values[i]);
+   sum += arr[i];
+}**
+
+**double avg = sum/arr.length;**
+// Calculate the average of the values
+
+**System.out.println(""Sum is"" + sum + "" and the average is "" + avg);**
+// Print the sum and average to the console",5,4,4,4,"BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); // Creates a BufferedReader to read user input from the console
+String[] values = line.split("" ""); // Splits the input line into an array of strings, assuming input is space-separated
+int[] arr = new int[values.length]; // Creates an integer array to store the numbers, sized based on the number of input values
+int sum=0;
+for (int i = 0; i < values.length; i++) {
+   arr[i] = Integer.parseInt(values[i]); // Parses each string value into an integer and stores it in the array
+   sum+=arr[i]; // Adds the current integer to the sum
+}
+double avg = sum/arr.length;
+System.out.println(""Sum is"" + sum + "" and the average is "" + avg); // Prints the calculated sum and average",5,5,4,5
+,46518000,"Scanner scanner = new Scanner(System.in);
+int x = scanner.nextInt();
+int y = scanner.nextInt();
+String function = scanner.next();
+if (function == ""age"") {
+    int sum = x + y;
+    System.out.println(sum);
+}
+","Scanner scanner = new Scanner(System.in); // This line creates a Scanner object that will be used to read the user's input.
+int x = scanner.nextInt(); // This line reads an integer from the user and stores it in the variable x.
+int y = scanner.nextInt(); // This line reads an integer from the user and stores it in the variable y.
+String function = scanner.next(); // This line reads a string from the user and stores it in the variable function.
+if (function == ""age"") { // This line checks if the user entered the string ""age"".
+    int sum = x + y; // This line calculates the sum of x and y and stores it in the variable sum.
+    System.out.println(sum); // This line prints the value of sum to the console.
+}",5,4,4,4,"// Create a Scanner object to read input from the user 
+Scanner scanner = new Scanner(System.in);
+// Read the first integer input 
+int x = scanner.nextInt();
+// Read the second integer input 
+int y = scanner.nextInt();
+// Read the desired function as a String 
+String function = scanner.next();
+// Check if the function is ""add"" 
+if (function == ""add"") {
+    // Calculate the sum of x and y 
+    int sum = x + y;
+    // Print the sum 
+    System.out.println(sum);
+}",5,5,5,4
+,,,,,,,,,,,,
+Q4,60600464,"static List<Integer> furthestAirport(int departingAirport) { 
+    int max = 2;
+    Set<Integer> result = new LinkedHashSet<>(); 
+
+    for (int endKey : stationKeys) {
+        if (departingAirport != endKey) {  
+
+            Set<List<Integer>> tempHash = g.shortestPaths(departingAirport, endKey); 
+            if (!tempHash.isEmpty()) { 
+                for (List<Integer> tempList : tempHash) {
+
+                    if( tempList.size() > max ) { 
+                       result.clear();
+                       result.add(endKey); 
+                    } else if( tempList.size() == max ) { 
+                       result.add(endKey); 
+                    }
+                }
+            }
+        }
+    }
+
+    return new ArrayList<>(result);
+}
+","```java
+// Get the list of airport keys
+static List<Integer> furthestAirport(int departingAirport) { 
+    // Max depth for the shortest path search
+    int max = 2; 
+    // Set to store the furthest airports
+    Set<Integer> result = new LinkedHashSet<>(); 
+
+    // Iterate over all airports
+    for (int endKey : stationKeys) {
+        // Skip the departing airport
+        if (departingAirport != endKey) {  
+
+            // Get the shortest paths between the departing airport and the current airport
+            Set<List<Integer>> tempHash = g.shortestPaths(departingAirport, endKey); 
+            // If there are any shortest paths
+            if (!tempHash.isEmpty()) { 
+                // Iterate over the shortest paths
+                for (List<Integer> tempList : tempHash) {
+                    // If the current path is longer than the max depth
+                    if( tempList.size() > max ) { 
+                        // Clear the result set and add the current airport
+                        result.clear();
+                        result.add(endKey); 
+                    } 
+                    // If the current path is equal to the max depth
+                    else if( tempList.size() == max ) { 
+                        // Add the current airport to the result set
+                        result.add(endKey); 
+                    }
+                }
+            }
+        }
+    }
+
+    return new ArrayList<>(result);
+}
+```",5,5,3,5,"static List<Integer> furthestAirport(int departingAirport) { //(1)  // Method to find the furthest airport from a given departing airport
+    int max = 2;
+    Set<Integer> result = new LinkedHashSet<>(); //(2)  // Set to store the furthest airports, using LinkedHashSet to maintain order 
+
+    for (int endKey : stationKeys) {
+        if (departingAirport != endKey) {  
+            //(!!)
+            Set<List<Integer>> tempHash = g.shortestPaths(departingAirport, endKey); //(1)  // Get all shortest paths between the departing airport and the current end airport
+            if (!tempHash.isEmpty()) {
+                for (List<Integer> tempList : tempHash) {
+
+                    if( tempList.size() > max ) { //(3)  // Update the maximum path length if a longer path is found
+                       result.clear(); // Clear the result set as a new maximum is found
+                       result.add(endKey); 
+                    } else if( tempList.size() == max ) { //(4)  // Add the airport to the result set if its path length equals the current maximum
+                       result.add(endKey); 
+                    }
+                }
+            }
+        }
+    }
+
+    return new ArrayList<>(result);
+}",5,5,4,5
+,35058397,"private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+    int c;
+   c=Integer.parseInt ( jTextField2.getText()) ;
+
+   jTextField1.setVisible(true );
+
+   if(c>50)
+   {
+       jTextField1.setText(""A WARD"");
+
+   }
+   else 
+        jTextField1.setText("" B WARD"");
+
+
+   revalidate();
+}      
+","private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    // Gets the text from jTextField2, parses it into an integer, and stores it in variable c
+    int c = Integer.parseInt(jTextField2.getText());
+
+    // Sets jTextField1 to visible
+    jTextField1.setVisible(true);
+
+    // Checks if c is greater than 50
+    if (c > 50) {
+        // Sets the text of jTextField1 to ""A WARD""
+        jTextField1.setText(""A WARD"");
+    } else {
+        // Sets the text of jTextField1 to ""B WARD""
+        jTextField1.setText(""B WARD"");
+    }
+
+    // Revalidates the layout to display the changes
+    revalidate();
+}",4,4,4,4,"private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    int c;
+    // Parse the sum from jTextField2
+    c=Integer.parseInt ( jTextField2.getText()) ;
+
+    // Make jTextField1 visible
+    jTextField1.setVisible(true );
+
+    // Determine the grade based on the sum
+    if(c>50)
+    {
+        jTextField1.setText(""A WARD"");
+
+    }
+    else 
+        jTextField1.setText("" B WARD"");
+
+
+    // Revalidate the layout
+    revalidate();
+}",5,4,4,5
+,35701316,"class Distribution<T>{
+    List<Double> probs = new ArrayList<>();
+    List<T> events = new ArrayList<>();
+    double sumProb;
+    Random rand = new Random();
+
+    Distribution(Map<T,Double> probs){
+        for(T event : probs.keySet()){
+            sumProb += probs.get(event);
+            events.add(event);
+            this.probs.add(probs.get(event));
+        }
+    }
+
+    public T sample(){
+        T value;
+        double prob = rand.nextDouble()*sumProb;
+        int i;
+        for(i=0; prob>0; i++){
+            prob-= probs.get(i);
+        }
+        return events.get(i-1);
+    }
+}
+","```java
+class Distribution<T>{
+    List<Double> probs = new ArrayList<>(); // List of probabilities
+    List<T> events = new ArrayList<>(); // List of events
+    double sumProb; // Sum of probabilities
+    Random rand = new Random(); // Random number generator
+
+    Distribution(Map<T,Double> probs){ // Constructor that takes a map of events and probabilities
+        for(T event : probs.keySet()){ // Iterate over the events
+            sumProb += probs.get(event); // Add the probability of the event to the sum
+            events.add(event); // Add the event to the list of events
+            this.probs.add(probs.get(event)); // Add the probability to the list of probabilities
+        }
+    }
+
+    public T sample(){ // Function to sample an event
+        T value; // Variable to store the sampled event
+        double prob = rand.nextDouble()*sumProb; // Generate a random number between 0 and the sum of probabilities
+        int i; // Index of the event
+        for(i=0; prob>0; i++){ // Iterate over the events
+            prob-= probs.get(i); // Subtract the probability of the current event from the random number
+        }
+        return events.get(i-1); // Return the event at the index
+    }
+}
+```",5,5,3,5,"class Distribution<T>{
+    List<Double> probs = new ArrayList<>(); // Stores the probabilities for each event
+    List<T> events = new ArrayList<>(); // Stores the events 
+    double sumProb;
+    Random rand = new Random(); // Random number generator for sampling
+
+    Distribution(Map<T,Double> probs){ // Constructor to initialize the distribution
+        for(T event : probs.keySet()){
+            sumProb += probs.get(event); // Calculate the sum of probabilities
+            events.add(event); // Add the event to the list
+            this.probs.add(probs.get(event)); // Add the probability to the list
+        }
+    }
+
+    public T sample(){
+        T value; 
+        double prob = rand.nextDouble()*sumProb;
+        int i; 
+        for(i=0; prob>0; i++){ // Iterate through the probabilities until the random number is less than or equal to the sum of probabilities
+            prob-= probs.get(i); // Subtract the current probability from the random number
+        }
+        return events.get(i-1);
+    }
+}",5,5,4,5
+,45629990,"import com.ibm.websphere.security.NotImplementedException;
+import com.ibm.wsspi.security.auth.callback.Constants;
+import com.ibm.wsspi.security.auth.callback.WSMappingCallbackHandlerFactory;
+import javax.resource.spi.security.PasswordCredential;
+import javax.security.auth.Subject;
+import javax.security.auth.callback.CallbackHandler;
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
+
+Map map = new HashMap();
+map.put(Constants.MAPPING_ALIAS, ""REPLACE_WITH_YOUR_AUTH_ALIAS"");
+CallbackHandler callbackHandler = null;
+try {
+    callbackHandler = WSMappingCallbackHandlerFactory.getInstance().getCallbackHandler(map, null);
+} catch (NotImplementedException e) {
+}
+
+LoginContext loginContext = null;
+try {
+loginContext = new LoginContext(""DefaultPrincipalMapping"", callbackHandler);
+    loginContext.login();
+} catch (LoginException e) {
+}
+
+Subject subject = loginContext.getSubject();
+Set credentials = subject.getPrivateCredentials();
+
+PasswordCredential passwordCredential = (PasswordCredential) credentials.iterator().next();
+
+String user = passwordCredential.getUserName();
+String password = new String(passwordCredential.getPassword());
+
+response.setContentType(""text/html"");
+PrintWriter out = response.getWriter();
+out.println(""<h1>User: "" + user + "" --- Password: "" + password+""</h1>"");
+","import com.ibm.websphere.security.NotImplementedException; //Used to handle errors related to Not Implemented Exceptions
+import com.ibm.wsspi.security.auth.callback.Constants; //Import for constants used in the code
+import com.ibm.wsspi.security.auth.callback.WSMappingCallbackHandlerFactory; //Factory class for creating WSMappingCallbackHandler instances
+import javax.resource.spi.security.PasswordCredential; //Class representing a password credential
+import javax.security.auth.Subject; //Class representing a subject
+import javax.security.auth.callback.CallbackHandler; //Interface for a callback handler
+import javax.security.auth.login.LoginContext; //Class representing a login context
+import javax.security.auth.login.LoginException; //Used to handle errors related to Login Exceptions
+
+import java.io.PrintWriter; //PrintWriter is used to write data to a character stream
+import java.util.HashMap; //HashMap for storing key-value pairs
+import java.util.Map; //Map interface for storing key-value pairs
+import java.util.Set; //Set interface for representing unordered collections
+
+Map<String, String> map = new HashMap<>(); //HashMap to store key-value pairs, used for specifying the authentication alias
+map.put(Constants.MAPPING_ALIAS, ""REPLACE_WITH_YOUR_AUTH_ALIAS""); //Put the mapping alias into the map
+
+CallbackHandler callbackHandler = null; //CallbackHandler to handle callbacks
+try {
+    callbackHandler = WSMappingCallbackHandlerFactory.getInstance().getCallbackHandler(map, null); //Get the callback handler instance
+} catch (NotImplementedException e) { //Catch Not Implemented Exception and ignore it
+}
+
+LoginContext loginContext = null; //LoginContext for performing the login
+try {
+    loginContext = new LoginContext(""DefaultPrincipalMapping"", callbackHandler); //Create a new LoginContext instance
+    loginContext.login(); //Perform the login
+} catch (LoginException e) { //Catch any LoginExceptions
+}
+
+Subject subject = loginContext.getSubject(); //Get the subject from the login context
+Set<PasswordCredential> credentials = subject.getPrivateCredentials(PasswordCredential.class); //Get the password credentials from the subject
+PasswordCredential passwordCredential = credentials.iterator().next(); //Iterate over the credentials and get the first one
+
+String user = passwordCredential.getUserName(); //Get the username from the password credential
+String password = new String(passwordCredential.getPassword()); //Get the password from the password credential
+
+response.setContentType(""text/html""); //Set the response content type to HTML
+PrintWriter out = response.getWriter(); //Get the print writer from the response
+out.println(""<h1>User: "" + user + "" --- Password: "" + password+""</h1>""); //Write the HTML output",4,4,4,4,"import com.ibm.websphere.security.NotImplementedException;
+import com.ibm.wsspi.security.auth.callback.Constants;
+import com.ibm.wsspi.security.auth.callback.WSMappingCallbackHandlerFactory;
+import javax.resource.spi.security.PasswordCredential;
+import javax.security.auth.Subject;
+import javax.security.auth.callback.CallbackHandler;
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
+
+Map map = new HashMap(); // Create a map to store authentication data
+map.put(Constants.MAPPING_ALIAS, ""REPLACE_WITH_YOUR_AUTH_ALIAS""); // Set the J2C authentication alias
+CallbackHandler callbackHandler = null; // Initialize callback handler
+try {
+    callbackHandler = WSMappingCallbackHandlerFactory.getInstance().getCallbackHandler(map, null); // Get callback handler using alias
+} catch (NotImplementedException e) {
+} // Handle potential NotImplementedException
+
+LoginContext loginContext = null; // Initialize login context
+try {
+loginContext = new LoginContext(""DefaultPrincipalMapping"", callbackHandler); // Create login context with callback handler
+    loginContext.login(); // Perform authentication
+} catch (LoginException e) {
+} // Handle potential LoginException
+
+Subject subject = loginContext.getSubject(); // Get the authenticated subject
+Set credentials = subject.getPrivateCredentials(); // Get private credentials from the subject
+
+PasswordCredential passwordCredential = (PasswordCredential) credentials.iterator().next(); // Get the password credential
+
+String user = passwordCredential.getUserName();
+String password = new String(passwordCredential.getPassword());
+
+response.setContentType(""text/html""); // Set content type for response
+PrintWriter out = response.getWriter(); // Get PrintWriter to write to response
+out.println(""<h1>User: "" + user + "" --- Password: "" + password+""</h1>""); ",5,5,5,5
+,48334094,"WebElement pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul""));
+List < WebElement > allPaginations = pagination.findElements(By.tagName(""a""));
+WebElement title = d.findElement(By.linkText("">""));
+System.out.println(allPaginations.size());
+if (allPaginations.size() > 0)
+{
+    System.out.println(""Pagination exists"");
+    for (int i = 0; i < allPaginations.size(); i++)
+    {
+        pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul""));
+        allPaginations = pagination.findElements(By.tagName(""a""));
+        Thread.sleep(3000);
+        allPaginations.get(i).click();
+        d.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        List < WebElement > ngo_Names = d.findElements(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/table/tbody/tr/td[2]""));
+        System.out.println(ngo_Names.size());
+
+    }
+}
+else
+{
+    System.out.println(""Pagination doesn't exists"");
+}
+","WebElement pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul"")); // Store the web element for pagination
+
+List < WebElement > allPaginations = pagination.findElements(By.tagName(""a"")); // Store all pagination elements
+
+WebElement title = d.findElement(By.linkText("">"")); // Store the web element for title (the '>' symbol)
+
+System.out.println(allPaginations.size()); // Print the number of pagination elements
+
+if (allPaginations.size() > 0) // If there are pagination elements
+{
+    System.out.println(""Pagination exists""); // Print that pagination exists
+
+    for (int i = 0; i < allPaginations.size(); i++) // Iterate through the pagination elements
+    {
+        pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul"")); // Store the web element for pagination again
+
+        allPaginations = pagination.findElements(By.tagName(""a"")); // Store all pagination elements again
+
+        Thread.sleep(3000); // Sleep for 3 seconds (to wait for the page to load)
+
+        allPaginations.get(i).click(); // Click on the pagination element at index 'i'
+
+        d.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS); // Set the page load timeout to 5 seconds
+        // Note: This line sets the amount of time WebDriver will wait for a web element to be found.
+
+        List < WebElement > ngo_Names = d.findElements(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/table/tbody/tr/td[2]"")); // Store all NGO names
+
+        System.out.println(ngo_Names.size()); // Print the number of NGO names
+    }
+}
+else // If there are no pagination elements
+{
+    System.out.println(""Pagination doesn't exists""); // Print that pagination doesn't exist
+}",4,3,4,5,"// Locate the pagination container using XPath. 
+WebElement pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul""));
+// Find all pagination links within the container using tagName=""a"". 
+List < WebElement > allPaginations = pagination.findElements(By.tagName(""a""));
+// Find the "">"" link element for potential use. 
+WebElement title = d.findElement(By.linkText("">""));
+System.out.println(allPaginations.size());
+// Check if pagination exists. 
+if (allPaginations.size() > 0)
+{
+    System.out.println(""Pagination exists"");
+    // Iterate through the pagination links. 
+    for (int i = 0; i < allPaginations.size(); i++)
+    {
+        //  Re-locate the pagination container and links to handle potential DOM changes.
+        pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul""));
+        allPaginations = pagination.findElements(By.tagName(""a""));
+        // Wait for 3 seconds to allow the page to load after clicking the link. 
+        Thread.sleep(3000);
+        // Click the current pagination link. 
+        allPaginations.get(i).click();
+        // Set a page load timeout of 5 seconds to handle potential delays. 
+        d.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        // Find the table data elements containing NGO names. 
+        List < WebElement > ngo_Names = d.findElements(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/table/tbody/tr/td[2]""));
+        System.out.println(ngo_Names.size());
+        //System.out.println(i);
+    }
+}
+else
+{
+    System.out.println(""Pagination doesn't exists"");
+}",5,4,4,4

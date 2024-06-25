@@ -1,0 +1,633 @@
+Quartile,Id,Extracted Code,Code with Inline Comments (Gemini),Accuracy,Adequacy,Conciseness,Usefulness,Code with Inline Comments (GPT-4),GPT Accuracy,GPT Adequacy,GPT Conciseness,GPT Usefulness
+Q1,64809875,"[d['id'] for d in  dict2.values()]
+[1, 2]
+",[d['id'] for d in  dict2.values()] # List comprehension to extract 'id' values from the dictionaries in dict2,5,4,5,4,"# Extract the 'id' value from each dictionary in dict2's values
+[d['id'] for d in dict2.values()]",5,4,5,4
+,44617250,"if all(data[i+k] < 50 for k in range(0,101)):
+","if all(data[i+k] < 50 for k in range(0,101)):  # Checks if all elements in the next 101 positions are less than 50",4,3,4,4,"if all(data[i+k] < 50 for k in range(0,101)):  # Check if all 101 consecutive elements starting at index i are less than 50",5,4,4,4
+,76238864,"x_centered = x - x.mean(dim=1, keepdim=True)
+","# Center the data by subtracting the mean of each row
+x_centered = x - x.mean(dim=1, keepdim=True)",5,4,4,4,"x_centered = x - x.mean(dim=1, keepdim=True)  # Subtract the mean of each row from corresponding elements to center the data",5,4,5,4
+,16477158,"t1 = [L.pop(random.randrange(len(L))) for _ in xrange(2)]
+",t1 = [L.pop(random.randrange(len(L))) for _ in xrange(2)]  # Pops 2 random elements from list L and stores them in t1,4,3,4,3,t1 = [L.pop(random.randrange(len(L))) for _ in xrange(2)]  # Remove and return two random elements from list L,4,3,4,3
+,56592828,"df[""Col""].str.contains(r""\bScan\b"")
+","df[""Col""].str.contains(r""\bScan\b"") # Checks if the column 'Col' contains the substring 'Scan' as a whole word",4,4,4,4,"# Check if the string ""Scan"" is present as a whole word in the ""Col"" column of the dataframe
+df[""Col""].str.contains(r""\bScan\b"")  ",5,4,4,4
+,,,,,,,,,,,,
+Q2,69383213,"N = 100 
+with open(""myLogFile.txt"",""r+"") as f:
+   data = f.readlines()
+   if len(data) > N: data = data[0:N]
+   f.seek(0)
+   f.writelines(data)
+   f.truncate()
+","N = 100  # Maximum number of lines to keep in the log file
+with open(""myLogFile.txt"", ""r+"") as f:  # Open the log file in read/write mode
+    data = f.readlines()  # Read the entire file into a list
+    if len(data) > N:  # Check if the file has more lines than the maximum
+        data = data[0:N]  # Truncate the list to the maximum number of lines
+    f.seek(0)  # Rewind the file pointer to the beginning of the file
+    f.writelines(data)  # Write the truncated list back to the file
+    f.truncate()  # Truncate the file to its current size",5,4,5,4,"N = 100
+with open(""myLogFile.txt"", ""r+"") as f:  # Open file for reading and writing
+   data = f.readlines()  # Read all lines from the file
+   if len(data) > N: data = data[0:N]  # If more than N lines, keep only the first N lines
+   f.seek(0)  # Move the cursor to the start of the file
+   f.writelines(data)  # Write the (possibly truncated) data back to the file
+   f.truncate()  # Remove any remaining lines from the original file",5,4,4,4
+,73761530,"val = data[20][7] 
+
+(dt.datetime.min + dt.timedelta(val)).time().strftime(""%M:%S.%f"")
+","val = data[20][7]  # Fetching the value from the specified index of the 2D list
+
+(dt.datetime.min + dt.timedelta(val)).time().strftime(""%M:%S.%f"") # Converting the timedelta to a time object and formatting it as ""MM:SS.fff""",4,3,3,3,"val = data[20][7]  # Extract the value at row 20, column 7 from the data
+
+# Compute the time equivalent of the timedelta 'val' and format it as minutes, seconds, and microseconds
+(dt.datetime.min + dt.timedelta(val)).time().strftime(""%M:%S.%f"")",4,3,4,3
+,65023674,"df['document_id'] = df['user_id'].apply(lambda x: return_documents(x))
+
+df = df.explode('document_id')
+","df['document_id'] = df['user_id'].apply(lambda x: return_documents(x)) # This line applies a function `return_documents` to `user_id` column of `df` and assigns the result to `document_id` column
+df = df.explode('document_id') # This line explodes the `document_id` column, creating new rows for each element in the list",4,3,4,3,"df['document_id'] = df['user_id'].apply(lambda x: return_documents(x))  # Apply the function return_documents to each user_id to get document_ids
+
+df = df.explode('document_id')  # Expand the list of document_ids into separate rows",4,3,4,3
+,61011962,"a_n = a.numpy()
+a_n = np.apply_along_axis(func1d=lambda x: np.sum(np.power(2,np.where(x==1))[0]), axis=2, arr=a_n)
+
+a = torch.Tensor(a_n)
+","a_n = a.numpy()  # Convert the PyTorch tensor to a NumPy array
+a_n = np.apply_along_axis(func1d=lambda x: np.sum(np.power(2,np.where(x==1))[0]), axis=2, arr=a_n)  # Apply a function along the 2nd axis, summing the powers of 2 of the non-zero elements in each row
+a = torch.Tensor(a_n)  # Convert the NumPy array back to a PyTorch tensor",4,3,4,3,"a_n = a.numpy()  # Convert PyTorch tensor 'a' to a NumPy array
+
+# Apply a function along axis 2 of 'a_n'. The function computes the sum of 2 raised to the indices where elements are 1.
+a_n = np.apply_along_axis(func1d=lambda x: np.sum(np.power(2, np.where(x == 1))[0]), axis=2, arr=a_n)
+
+a = torch.Tensor(a_n)  # Convert the modified NumPy array back to a PyTorch tensor",4,3,4,3
+,59147179,"population = [[0]*20]*5
+population[0] is population[1]
+True
+population = [[0]*20 for _ in range(5)]
+population[0] is population[1]
+False
+","# Create a 5x20 matrix filled with 0s
+population = [[0]*20]*5
+
+# Check if the first and second rows of the matrix are the same object
+population[0] is population[1]  # True - references to the same list object
+
+# Create a 5x20 matrix filled with 0s using list comprehension
+population = [[0]*20 for _ in range(5)]
+
+# Check if the first and second rows of the matrix are different objects
+population[0] is population[1]  # False - different list objects",5,4,4,4,"population = [[0]*20]*5  # Create a list of 5 lists, each containing 20 zeros, all referencing the same list
+population[0] is population[1]  # Check if the first two lists in population are the same object
+True  # Output: True, since all sublists are references to the same list object
+
+population = [[0]*20 for _ in range(5)]  # Create a list of 5 lists, each containing 20 zeros, each a separate list
+population[0] is population[1]  # Check if the first two lists in population are the same object
+False  # Output: False, since each sublist is a separate list object",4,4,4,4
+,,,,,,,,,,,,
+Q3,58012938,"BASE_RATE = 75
+
+cost = BASE_RATE
+
+if sex == 'M':  
+    cost += (BASE_RATE * .25)
+
+if state == 'OH' or state == 'MO':
+    cost += (BASE_RATE * .10)  
+
+if 21 < age < 70:
+    cost += (BASE_RATE * .05)  
+","BASE_RATE = 75  # Initial cost
+
+cost = BASE_RATE  # Initialize cost
+
+if sex == 'M':  # Check if male
+    cost += (BASE_RATE * .25)  # Add 25% to cost if male
+
+if state == 'OH' or state == 'MO':  # Check if state is OH or MO
+    cost += (BASE_RATE * .10)  # Add 10% to cost if state is OH or MO
+
+if 21 < age < 70:  # Check if age is between 21 and 70
+    cost += (BASE_RATE * .05)  # Add 5% to cost if age is between 21 and 70",5,4,4,4,"BASE_RATE = 75  # Set the base rate
+
+cost = BASE_RATE  # Initialize cost with the base rate
+
+if sex == 'M':  
+    cost += (BASE_RATE * .25)  # Add 25% of the base rate if the sex is male
+
+if state == 'OH' or state == 'MO':
+    cost += (BASE_RATE * .10)  # Add 10% of the base rate if the state is Ohio or Missouri
+
+if 21 < age < 70:
+    cost += (BASE_RATE * .05)  # Add 5% of the base rate if the age is between 21 and 70",4,3,4,3
+,37838023,"import csv
+import json
+
+with open('input.csv', 'r') as infile, open('output.csv', 'w') as outfile:
+    writer = csv.writer(outfile)
+    for line in infile:
+        num_books = json.loads(line.strip())['Books']
+        writer.writerow([num_books])
+","import csv  # Import the csv module for reading and writing CSV files
+import json  # Import the json module for parsing JSON data
+
+with open('input.csv', 'r') as infile, open('output.csv', 'w') as outfile:  # Open the input and output CSV files
+    writer = csv.writer(outfile)  # Create a CSV writer object for the output file
+    for line in infile:  # Iterate over each line in the input CSV file
+        # Parse the JSON data from the line and extract the 'Books' field
+        num_books = json.loads(line.strip())['Books']
+        writer.writerow([num_books])  # Write the number of books to the output CSV file",4,3,4,3,"import csv
+import json
+
+with open('input.csv', 'r') as infile, open('output.csv', 'w') as outfile:  # Open input and output files
+    writer = csv.writer(outfile)  # Initialize CSV writer
+    for line in infile:  # Iterate over each line in the input file
+        num_books = json.loads(line.strip())['Books']  # Parse JSON and extract the number of books
+        writer.writerow([num_books])  # Write the number of books to the output CSV",4,4,4,4
+,53622221,"from toolz.itertoolz import sliding_window
+d=set()
+data = ""124136""
+for i in list(sliding_window(2, data)):
+    if 1<=int(i[0])<=26:
+        d.add(i[0])
+    if 1<=int(i[1])<=26:
+        d.add(i[1])
+    if 1<=int(i[0]+i[1])<=26:
+        d.add(i[0]+i[1])
+print(d) 
+","from toolz.itertoolz import sliding_window  # Sliding window tool for creating overlapping sequences
+
+d = set()  # Initialize a set to store the unique characters
+
+data = ""124136""  # Input string
+
+for i in list(sliding_window(2, data)):  # Iterate over 2-sized overlapping windows in the string
+    if 1 <= int(i[0]) <= 26:  # Check if the first character in the window is a valid letter
+        d.add(i[0])  # Add it to the set
+
+    if 1 <= int(i[1]) <= 26:  # Check if the second character in the window is a valid letter
+        d.add(i[1])  # Add it to the set
+
+    if 1 <= int(i[0] + i[1]) <= 26:  # Check if the concatenation of both characters is a valid letter
+        d.add(i[0] + i[1])  # Add it to the set
+
+print(d)  # Print the set of unique characters",4,3,4,3,"from toolz.itertoolz import sliding_window
+
+d = set()  # Initialize an empty set to store unique values
+data = ""124136""  # Define the data string
+
+for i in list(sliding_window(2, data)):  # Generate a sliding window of size 2 over the data
+    if 1 <= int(i[0]) <= 26:  # Check if the first element of the window is between 1 and 26
+        d.add(i[0])  # Add the first element to the set
+    if 1 <= int(i[1]) <= 26:  # Check if the second element of the window is between 1 and 26
+        d.add(i[1])  # Add the second element to the set
+    if 1 <= int(i[0] + i[1]) <= 26:  # Check if the concatenation of the two elements is between 1 and 26
+        d.add(i[0] + i[1])  # Add the concatenated value to the set
+
+print(d)  # Print the set of unique values",4,3,4,3
+,64475629,"t = [1,2,4,8] 
+raw_1 = [0.02, 0.02, 0.3, 0.4] 
+raw_2 = [0.6, 0.7, 0.2, 0.3]
+x = range(len(t))
+plt.plot(x, raw_1, color='r', marker='o') 
+plt.plot(x, raw_2, color='b', marker='o')
+plt.xticks(x,t)
+plt.show()
+","# List of time values
+t = [1,2,4,8] 
+
+# Raw data for series 1
+raw_1 = [0.02, 0.02, 0.3, 0.4] 
+
+# Raw data for series 2
+raw_2 = [0.6, 0.7, 0.2, 0.3]
+
+# x-axis values
+x = range(len(t))
+
+# Plot series 1 with red color and circle markers
+plt.plot(x, raw_1, color='r', marker='o') 
+
+# Plot series 2 with blue color and circle markers
+plt.plot(x, raw_2, color='b', marker='o')
+
+# Set x-axis ticks and labels using 't' values
+plt.xticks(x,t)
+
+# Display the plot
+plt.show()",5,4,4,4,"t = [1, 2, 4, 8]  # Define the x-axis values
+raw_1 = [0.02, 0.02, 0.3, 0.4]  # Define the first set of y-axis values
+raw_2 = [0.6, 0.7, 0.2, 0.3]  # Define the second set of y-axis values
+
+x = range(len(t))  # Create a range object for the length of t
+plt.plot(x, raw_1, color='r', marker='o')  # Plot the first set of values with red color and circle markers
+plt.plot(x, raw_2, color='b', marker='o')  # Plot the second set of values with blue color and circle markers
+plt.xticks(x, t)  # Set the x-ticks to the values in t
+plt.show()  # Display the plot",5,4,4,4
+,40620598," for row in reader:
+    if row[0] in my_dict.keys():
+       my_dict[row[0]].extend(row)
+    else:
+       my_dict[row[0]]=row
+
+ for v in my_dict.values():
+    writer.writerow(v)
+","
+# Iterate over each row in the reader object
+for row in reader:
+    # Check if the first element of the row (row[0]) is a key in the my_dict dictionary
+    if row[0] in my_dict.keys():
+        # If the key is found, extend the corresponding value list with the entire row
+        my_dict[row[0]].extend(row)
+    else:
+        # If the key is not found, add a new key-value pair to the dictionary with the first element of the row as the key and the entire row as the value
+        my_dict[row[0]] = row
+
+# Iterate over the values in the my_dict dictionary
+for v in my_dict.values():
+    # Write the current value to the writer object
+    writer.writerow(v)",5,4,4,4,"for row in reader:  # Iterate over each row in the reader
+    if row[0] in my_dict.keys():  # Check if the first element of the row is already a key in my_dict
+       my_dict[row[0]].extend(row)  # If key exists, extend the list with the current row
+    else:
+       my_dict[row[0]] = row  # If key does not exist, add the row as the value for the key
+
+for v in my_dict.values():  # Iterate over the values in my_dict
+    writer.writerow(v)  # Write each value (which is a list) as a row in the writer",5,4,4,4
+,,,,,,,,,,,,
+Q4,38570198,"import numpy as np
+import pandas as pd
+
+mydata = pd.DataFrame({'timestamp': ['2015-06-22 16:48:00']*3 +
+                                    ['2015-06-23 16:48:00']*2 +
+                                    ['2015-06-24 16:48:00'] +
+                                    ['2015-06-25 16:48:00']*4 +
+                                    ['2015-07-13 16:48:00',
+                                     '2015-08-13 16:48:00'],
+                       'BPM': [65]*8 + [70]*4})
+mydata['timestamp'] = pd.to_datetime(mydata['timestamp'])
+print(mydata)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+yourdata = pd.Series(['2015-06-22', '2015-06-23', '2015-06-24',
+                      '2015-06-25', '2015-07-13'], name='timestamp')
+yourdata = pd.to_datetime(yourdata).to_frame()
+print(yourdata)
+
+
+
+
+
+
+
+result = (mydata.set_index('timestamp').resample('D')
+                .size().loc[yourdata['timestamp']]
+                .reset_index())
+result.columns = ['timestamp', 'result']
+print(result)
+
+
+
+
+
+
+
+","# Import necessary libraries
+import numpy as np
+import pandas as pd
+
+# Sample data with timestamp and BPM (Beats per minute)
+mydata = pd.DataFrame({'timestamp': ['2015-06-22 16:48:00'] * 3 +
+                                    ['2015-06-23 16:48:00'] * 2 +
+                                    ['2015-06-24 16:48:00'] +
+                                    ['2015-06-25 16:48:00'] * 4 +
+                                    ['2015-07-13 16:48:00',
+                                     '2015-08-13 16:48:00'],
+                       'BPM': [65] * 8 + [70] * 4})
+
+# Convert timestamp to datetime format
+mydata['timestamp'] = pd.to_datetime(mydata['timestamp'])
+
+# Convert a given timestamp series to datetime format
+yourdata = pd.Series(['2015-06-22', '2015-06-23', '2015-06-24',
+                      '2015-06-25', '2015-07-13'], name='timestamp')
+yourdata = pd.to_datetime(yourdata).to_frame()
+
+# Resample 'mydata' by day and count the number of rows ('size' method)
+# then select only the rows where the timestamp matches 'yourdata'
+result = (mydata.set_index('timestamp').resample('D')
+                .size().loc[yourdata['timestamp']]
+                .reset_index())
+
+# Rename columns for clarity
+result.columns = ['timestamp', 'result']",4,3,4,3,"import numpy as np
+import pandas as pd
+
+# Create a DataFrame with timestamps and BPM values
+mydata = pd.DataFrame({'timestamp': ['2015-06-22 16:48:00']*3 +
+                                    ['2015-06-23 16:48:00']*2 +
+                                    ['2015-06-24 16:48:00'] +
+                                    ['2015-06-25 16:48:00']*4 +
+                                    ['2015-07-13 16:48:00',
+                                     '2015-08-13 16:48:00'],
+                       'BPM': [65]*8 + [70]*4})
+mydata['timestamp'] = pd.to_datetime(mydata['timestamp'])  # Convert timestamps to datetime objects
+print(mydata)
+
+# Create a Series of timestamps and convert to DataFrame
+yourdata = pd.Series(['2015-06-22', '2015-06-23', '2015-06-24',
+                      '2015-06-25', '2015-07-13'], name='timestamp')
+yourdata = pd.to_datetime(yourdata).to_frame()  # Convert to datetime and then to DataFrame
+print(yourdata)
+
+# Resample mydata by day, count occurrences, and match with yourdata timestamps
+result = (mydata.set_index('timestamp').resample('D')
+                .size().loc[yourdata['timestamp']]
+                .reset_index())
+result.columns = ['timestamp', 'result']  # Rename columns
+print(result)",4,3,4,3
+,24424465,"import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+
+a = np.random.rand(100)    
+b = np.random.ranf(100)    
+df = pd.DataFrame({'a': a, 'b': b})
+
+
+c_norm  = colors.Normalize(vmin=min(df.b), vmax=max(df.b))
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))    
+color_vals = [scalar_map.to_rgba(val) for val in df.b]
+
+
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals)
+","import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+# Generate random data for 'a' and 'b' columns
+a = np.random.rand(100)    
+b = np.random.ranf(100)    
+
+# Create a Pandas DataFrame with columns 'a' and 'b'
+df = pd.DataFrame({'a': a, 'b': b})
+
+# Normalize the 'b' column values between min and max
+c_norm  = colors.Normalize(vmin=min(df.b), vmax=max(df.b))
+
+# Create a ScalarMappable object to map 'b' values to colors
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))    
+
+# Map 'b' values to colors and convert them to RGB
+color_vals = [scalar_map.to_rgba(val) for val in df.b]
+
+# Plot vertical lines with colors mapped to 'b' values
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals)",5,4,4,4,"import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+a = np.random.rand(100)  # Generate 100 random numbers for 'a'
+b = np.random.ranf(100)  # Generate 100 random numbers for 'b'
+df = pd.DataFrame({'a': a, 'b': b})  # Create a DataFrame from 'a' and 'b'
+
+c_norm  = colors.Normalize(vmin=min(df.b), vmax=max(df.b))  # Normalize the 'b' values for color mapping
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))  # Create a scalar mappable for color mapping
+color_vals = [scalar_map.to_rgba(val) for val in df.b]  # Map 'b' values to colors
+
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals)  # Plot vertical lines with colors based on 'b' values
+plt.show()  # Display the plot",5,4,4,4
+,68814112,"import pandas as pd
+
+df = pd.read_excel('merged.xlsx',dtype=str)
+writer = pd.ExcelWriter(""output.xlsx"", engine=""xlsxwriter"")
+df.to_excel(writer, sheet_name='Sheet1',  index=False)
+workbook = writer.book
+worksheet = writer.sheets['Sheet1']
+
+for column in df:
+    value = df[column].astype(str).map(len).max()
+
+    if value > 50:   
+        column_width = len(column)
+    else:
+        column_width = max(value, len(column))
+        
+    col_idx = df.columns.get_loc(column)
+    worksheet.set_column(col_idx, col_idx, column_width)
+    
+writer.save()
+","import pandas as pd
+
+# Read the Excel file and convert all values to strings
+df = pd.read_excel('merged.xlsx', dtype=str)
+
+# Create an ExcelWriter object to write to a new Excel file
+writer = pd.ExcelWriter(""output.xlsx"", engine=""xlsxwriter"")
+
+# Write the DataFrame to the new Excel file, specifying the sheet name and excluding the index
+df.to_excel(writer, sheet_name='Sheet1',  index=False)
+
+# Get the workbook and worksheet objects from the ExcelWriter
+workbook = writer.book
+worksheet = writer.sheets['Sheet1']
+
+# Iterate through each column in the DataFrame
+for column in df:
+    # Calculate the maximum length of the values in the column
+    value = df[column].astype(str).map(len).max()
+    
+    # Set the column width based on the maximum length of the values or the column name, whichever is greater
+    if value > 50:
+        column_width = len(column)
+    else:
+        column_width = max(value, len(column))
+
+    # Get the index of the column
+    col_idx = df.columns.get_loc(column)
+
+    # Set the column width in the worksheet
+    worksheet.set_column(col_idx, col_idx, column_width)
+
+# Save the changes to the Excel file
+writer.save()",4,4,4,4,"import pandas as pd
+
+df = pd.read_excel('merged.xlsx', dtype=str)  # Read the Excel file into a DataFrame, treating all data as strings
+writer = pd.ExcelWriter(""output.xlsx"", engine=""xlsxwriter"")  # Create an Excel writer using XlsxWriter engine
+df.to_excel(writer, sheet_name='Sheet1', index=False)  # Write the DataFrame to an Excel sheet without the index
+workbook = writer.book  # Access the workbook object
+worksheet = writer.sheets['Sheet1']  # Access the worksheet object
+
+for column in df:  # Iterate over each column in the DataFrame
+    value = df[column].astype(str).map(len).max()  # Find the maximum string length in the column
+
+    if value > 50:   
+        column_width = len(column)  # Set column width to the length of the column name if the max length is greater than 50
+    else:
+        column_width = max(value, len(column))  # Otherwise, set column width to the maximum of the column name length or the max string length
+        
+    col_idx = df.columns.get_loc(column)  # Get the column index
+    worksheet.set_column(col_idx, col_idx, column_width)  # Set the column width in the worksheet
+    
+writer.save()  # Save the Excel file",4,4,4,4
+,24424465,"import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+
+a = np.random.rand(100)    
+b = np.random.ranf(100)    
+df = pd.DataFrame({'a': a, 'b': b})
+
+
+c_norm  = colors.Normalize(vmin=min(df.b), vmax=max(df.b))
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))    
+color_vals = [scalar_map.to_rgba(val) for val in df.b]
+
+
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals)
+","import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+# Generate random data for 'a' and 'b' columns
+a = np.random.rand(100)    
+b = np.random.ranf(100)    
+
+# Create a Pandas DataFrame with columns 'a' and 'b'
+df = pd.DataFrame({'a': a, 'b': b})
+
+# Normalize the 'b' column values between min and max
+c_norm  = colors.Normalize(vmin=min(df.b), vmax=max(df.b))
+
+# Create a ScalarMappable object to map 'b' values to colors
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))    
+
+# Map 'b' values to colors and convert them to RGB
+color_vals = [scalar_map.to_rgba(val) for val in df.b]
+
+# Plot vertical lines with colors mapped to 'b' values
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals)",5,4,4,4,"import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+# Generate 100 random numbers for 'a' and 'b'
+a = np.random.rand(100)
+b = np.random.ranf(100)
+# Create a DataFrame from 'a' and 'b'
+df = pd.DataFrame({'a': a, 'b': b})
+
+# Normalize the 'b' values for color mapping
+c_norm = colors.Normalize(vmin=min(df.b), vmax=max(df.b))
+# Create a scalar mappable for color mapping using the 'jet' colormap
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))
+# Map 'b' values to colors
+color_vals = [scalar_map.to_rgba(val) for val in df.b]
+
+# Plot vertical lines with colors based on 'b' values
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals)
+plt.show()  # Display the plot",4,3,4,3
+,62108846,"import cv2
+import numpy as np
+
+img = cv2.imread('2.jpg')
+res = img.copy()
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+lower_green = np.array([40,50,50])
+upper_green = np.array([80,255,255])
+r2, g2, b2 = 255, 0, 0
+
+mask = cv2.inRange(hsv, lower_green, upper_green)
+
+mask = mask/255
+mask = mask.astype(np.bool)
+res[:,:,:3][mask] = [b2, g2, r2] 
+
+cv2.imshow('image', img)
+cv2.imshow('Result', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+","import cv2
+import numpy as np
+
+# Read the image from file
+img = cv2.imread('2.jpg')
+# Copy the original image to retain it
+res = img.copy()
+
+# Convert the image from BGR to HSV color space
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+# Define the lower and upper HSV values for green color
+lower_green = np.array([40,50,50])
+upper_green = np.array([80,255,255])
+# Define the replacement color in BGR format: Blue (B), Green (G), Red (R)
+r2, g2, b2 = 255, 0, 0
+
+# Create a mask based on the HSV values range
+mask = cv2.inRange(hsv, lower_green, upper_green)
+
+# Normalize the mask to a binary mask (0s and 1s)
+mask = mask/255
+mask = mask.astype(np.bool)
+# Replace the pixels in the original image with the replacement color based on the mask
+res[:,:,:3][mask] = [b2, g2, r2] 
+
+# Display the original image
+cv2.imshow('image', img)
+# Display the result image
+cv2.imshow('Result', res)
+# Wait for a key to be pressed before closing the windows
+cv2.waitKey(0)
+# Destroy all OpenCV windows
+cv2.destroyAllWindows()",4,3,4,4,"import cv2
+import numpy as np
+
+img = cv2.imread('2.jpg')  # Read the image from file
+res = img.copy()  # Create a copy of the image
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)  # Convert the image from BGR to HSV color space
+
+# Define the HSV range for the color green
+lower_green = np.array([40, 50, 50])
+upper_green = np.array([80, 255, 255])
+# Define the RGB color to replace green with
+r2, g2, b2 = 255, 0, 0
+
+mask = cv2.inRange(hsv, lower_green, upper_green)  # Create a mask for pixels within the green range
+
+mask = mask / 255  # Normalize the mask to be in range [0, 1]
+mask = mask.astype(np.bool)  # Convert mask to boolean type
+res[:, :, :3][mask] = [b2, g2, r2]  # Replace green pixels in the result with the defined RGB color
+
+cv2.imshow('image', img)  # Display the original image
+cv2.imshow('Result', res)  # Display the modified image
+cv2.waitKey(0)  # Wait for a key press indefinitely
+cv2.destroyAllWindows()  # Destroy all the windows",4,3,4,3

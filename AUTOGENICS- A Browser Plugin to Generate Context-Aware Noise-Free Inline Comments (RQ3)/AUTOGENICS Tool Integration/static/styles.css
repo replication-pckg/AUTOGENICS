@@ -1,0 +1,74 @@
+body {
+    background-color: #f4f4f4; /* Light grey background for a neutral look */
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Dark grey text for contrast */
+    padding: 20px;
+}
+
+textarea, input[type="submit"] {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+textarea {
+    margin-bottom: 10px; /* Added margin to separate multiple textareas */
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Larger font size */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green background on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px; /* Adds space above the footer */
+    color: #666; /* Grey text color */
+    font-size: 0.8em; /* Smaller font size for less emphasis */
+    background-color: #f8f8f8; /* Light background for the footer */
+}
+
+footer p {
+    margin: 5px 0; /* Space between paragraphs in the footer */
+}
+
+@keyframes colorChange {
+    0% { color: red; }
+    25% { color: blue; }
+    50% { color: green; }
+    75% { color: yellow; }
+    100% { color: red; }
+}
+
+.animated-title {
+    font-family: 'Playfair Display', serif;
+    animation: colorChange 8s infinite;
+}

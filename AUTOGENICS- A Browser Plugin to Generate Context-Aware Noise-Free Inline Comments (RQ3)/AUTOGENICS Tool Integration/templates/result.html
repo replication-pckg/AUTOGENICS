@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AUTOGENICS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .bg-light {
+            text-align: left; /* Ensures that the content in pre is left-aligned */
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="display-4 animated-title">AUTOGENICS</h1>
+        <h2>Original Code:</h2>
+        <pre class="bg-light p-3">{{ original_code }}</pre>
+        <h2>Question Context:</h2>
+        <pre class="bg-light p-3">{{ context }}</pre>
+        <h2>Generated Inline Comments:</h2>
+        <pre class="bg-light p-3">{{ comments }}</pre>
+        <form action="/" method="get">
+            <button type="submit" class="btn btn-primary">Generate New Inline Comments</button>
+        </form>
+    </div>
+</body>
+</html>

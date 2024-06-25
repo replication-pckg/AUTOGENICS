@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AUTOGENICS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="display-4 mt-5 animated-title">AUTOGENICS</h1>
+        <form method="post">
+            <textarea name="question" class="form-control" rows="3" placeholder="Paste your question here..."></textarea><br>
+            <textarea name="code" class="form-control" rows="10" placeholder="Paste your code here..."></textarea><br>
+            <input type="submit" class="btn btn-primary" value="Generate Inline Comments">
+        </form>
+    </div>
+</body>
+</html>

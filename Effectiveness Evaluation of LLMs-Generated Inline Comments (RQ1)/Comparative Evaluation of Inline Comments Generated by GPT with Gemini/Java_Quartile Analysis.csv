@@ -1,0 +1,816 @@
+Quartile,Id,Extracted Code,Code with Inline Comments (Gemini),Accuracy,Adequacy,Conciseness,Usefulness,Code with Inline Comments (GPT-4),GPT Accuracy,GPT Adequacy,GPT Conciseness,GPT Usefulness
+Q1,7372536,"angle = Math.atan2((double)(y2-y1), (double)(x2-x1));
+","angle = Math.atan2((double)(y2 - y1), (double)(x2 - x1)); // Calculate the angle between the two points using the atan2 function",4,3,4,3,"angle = Math.atan2((double)(y2 - y1), (double)(x2 - x1));  // Calculate the angle in radians between the points (x1, y1) and (x2, y2)",5,4,4,4
+,38725952,"list = new ArrayList<String>(new LinkedHashSet<String>(list))
+","```java
+List<String> list = new ArrayList<>(new LinkedHashSet<>(list)); // Remove duplicates and preserve insertion order
+```",5,4,4,4,list = new ArrayList<String>(new LinkedHashSet<String>(list));  // Remove duplicates from 'list' while maintaining order by converting to a LinkedHashSet and back to an ArrayList,4,3,4,3
+,11683644,"canvas.drawBitmap(b, (w - b.width()) / 2, (h - b.height()) / 2, mPaint);
+","canvas.drawBitmap(b, (w - b.width()) / 2, (h - b.height()) / 2, mPaint); // Draw the bitmap at the center of the canvas",4,3,4,3,"canvas.drawBitmap(b, (w - b.width()) / 2, (h - b.height()) / 2, mPaint);  // Draw the bitmap 'b' centered on the canvas using 'mPaint'",5,4,4,4
+,4591206,"a.divide(b, 2, RoundingMode.HALF_UP)
+","```java
+int a = 10;
+int b = 2;
+a.divide(b, 2, RoundingMode.HALF_UP); // Divides a by b with a scale of 2 and rounding up to the nearest integer
+```",1,1,3,1,"a.divide(b, 2, RoundingMode.HALF_UP);  // Divide 'a' by 'b', round to 2 decimal places using HALF_UP rounding mode",4,3,4,3
+,43969591,"float rectRight = faces[i].x + faces[i].width;
+float rectBottom = faces[i].y + faces[i].height;
+","float rectRight = faces[i].x + faces[i].width; // Calculate the right edge of the face rectangle
+float rectBottom = faces[i].y + faces[i].height; // Calculate the bottom edge of the face rectangle",5,4,5,4,"float rectRight = faces[i].x + faces[i].width;  // Calculate the right boundary of the rectangle for the ith face
+float rectBottom = faces[i].y + faces[i].height;  // Calculate the bottom boundary of the rectangle for the ith face",5,4,4,4
+,,,,,,,,,,,,
+Q2,5785094,"String s = ""Java is really cool"";
+String words[] = s.split("" "");
+String firstTwo = words[0] + ""  "" + words[1]; 
+String lastTwo = words[words.length - 2] + "" ""
+        + words[words.length - 1]; 
+","String s = ""Java is really cool""; // Initializing a string variable 's' and assigning it a value
+String words[] = s.split("" ""); // Splitting the string 's' by the delimiter "" "" and storing it in an array of words
+String firstTwo = words[0] + ""  "" + words[1]; // Extracting the first two words and concatenating them
+String lastTwo = words[words.length - 2] + "" "" + words[words.length - 1]; // Extracting the last two words and concatenating them",5,4,5,4,"String s = ""Java is really cool"";  // Initialize the string
+String words[] = s.split("" "");  // Split the string into words using space as the delimiter
+String firstTwo = words[0] + "" "" + words[1];  // Concatenate the first two words with a space
+String lastTwo = words[words.length - 2] + "" "" + words[words.length - 1];  // Concatenate the last two words with a space",4,3,4,3
+,5351483,"long diffSeconds = diff / 1000 % 60;  
+long diffMinutes = diff / (60 * 1000) % 60; 
+long diffHours = diff / (60 * 60 * 1000);
+","long diffSeconds = diff / 1000 % 60;  // Calculate the number of seconds from the difference
+long diffMinutes = diff / (60 * 1000) % 60; // Calculate the number of minutes from the difference, after removing the seconds
+long diffHours = diff / (60 * 60 * 1000); // Calculate the number of hours from the difference, after removing the minutes and seconds",5,4,4,4,"long diffSeconds = diff / 1000 % 60;  // Calculate the difference in seconds
+long diffMinutes = diff / (60 * 1000) % 60;  // Calculate the difference in minutes
+long diffHours = diff / (60 * 60 * 1000);  // Calculate the difference in hours",5,4,4,4
+,18815730,"DetachedCriteria acceptedCatIds = DetachedCriteria.forClass(Cat.class);
+acceptedCatIds.createAlias(""kitten"", ""kitten"")
+              .add(Restrictions.like(""kitten.name"", ""%kitten%"" ))
+              .setProjection(Projections.id());
+
+Criteria acceptedCats = session.createCriteria(Cat.class)
+acceptedCats.add(Subqueries.propertyIn(""id"", acceptedCatIds));
+","DetachedCriteria acceptedCatIds = DetachedCriteria.forClass(Cat.class); // Create a detached criteria for the Cat class
+acceptedCatIds.createAlias(""kitten"", ""kitten"") // Create an alias for theKitten property of the Cat class
+              .add(Restrictions.like(""kitten.name"", ""%kitten%"" )) // Add a restriction to the criteria to match cats with kitten names containing ""%kitten%""
+              .setProjection(Projections.id()); // Set the projection to only retrieve the cat IDs
+
+Criteria acceptedCats = session.createCriteria(Cat.class) // Create a Criteria object for the Cat class
+acceptedCats.add(Subqueries.propertyIn(""id"", acceptedCatIds)); // Add a subquery to the criteria to only select cats whose IDs are in the acceptedCatIds list",5,4,4,5,"DetachedCriteria acceptedCatIds = DetachedCriteria.forClass(Cat.class);  // Create a DetachedCriteria for the Cat class
+acceptedCatIds.createAlias(""kitten"", ""kitten"")  // Create an alias for the 'kitten' association
+              .add(Restrictions.like(""kitten.name"", ""%kitten%"" ))  // Add a restriction to match kitten names containing 'kitten'
+              .setProjection(Projections.id());  // Set the projection to the ID of the matching records
+
+Criteria acceptedCats = session.createCriteria(Cat.class);  // Create a Criteria for the Cat class
+acceptedCats.add(Subqueries.propertyIn(""id"", acceptedCatIds));  // Add a subquery to filter cats whose IDs are in the acceptedCatIds",4,3,4,4
+,22487945,"int middleStart = (myArr.length - 1) / 2;
+int middleEnd = (myArr.length - 1) - middleStart;
+int elementsToRemove = middleEnd - middleStart + 1;
+
+int[] result = new int[myArr.length - elementsToRemove];
+System.arraycopy(myArr, 0, result, 0, middleStart);
+System.arraycopy(myArr, middleEnd + 1, result, middleStart, middleStart);
+","int middleStart = (myArr.length - 1) / 2; // Calculates the starting index of the middle section of the array
+int middleEnd = (myArr.length - 1) - middleStart; // Calculates the ending index of the middle section of the array
+int elementsToRemove = middleEnd - middleStart + 1; // Calculates the number of elements to remove from the array
+
+int[] result = new int[myArr.length - elementsToRemove]; // Creates a new array with a length equal to the original array minus the number of elements to remove
+System.arraycopy(myArr, 0, result, 0, middleStart); // Copies the elements from the beginning of the original array up to the middle section into the new array
+System.arraycopy(myArr, middleEnd + 1, result, middleStart, middleStart); // Copies the elements from after the middle section of the original array into the new array",4,4,3,4,"int middleStart = (myArr.length - 1) / 2;  // Calculate the start index of the middle segment
+int middleEnd = (myArr.length - 1) - middleStart;  // Calculate the end index of the middle segment
+int elementsToRemove = middleEnd - middleStart + 1;  // Calculate the number of elements to remove
+
+int[] result = new int[myArr.length - elementsToRemove];  // Create a new array to hold the result
+System.arraycopy(myArr, 0, result, 0, middleStart);  // Copy the first part of the array
+System.arraycopy(myArr, middleEnd + 1, result, middleStart, myArr.length - middleEnd - 1);  // Copy the second part of the array",3,3,4,3
+,10213486,"String strDate = ""24.12.12 03:30:00,000"";
+SimpleDateFormat sdf = new SimpleDateFormat(""dd.MM.yy HH:mm:ss,SSS"");
+Date date = sdf.parse(strDate);
+","```java
+String strDate = ""24.12.12 03:30:00,000""; // Stores a date and time string in the format ""dd.MM.yy HH:mm:ss,SSS"".
+
+SimpleDateFormat sdf = new SimpleDateFormat(""dd.MM.yy HH:mm:ss,SSS""); // Creates a SimpleDateFormat object with the pattern ""dd.MM.yy HH:mm:ss,SSS"".
+
+Date date = sdf.parse(strDate); // Parses the date string into a Date object.
+```",5,4,3,4,"String strDate = ""24.12.12 03:30:00,000"";  // Define the date string
+SimpleDateFormat sdf = new SimpleDateFormat(""dd.MM.yy HH:mm:ss,SSS"");  // Define the date format
+Date date = sdf.parse(strDate);  // Parse the date string into a Date object",5,4,4,4
+,,,,,,,,,,,,
+Q3,40861136," ListAdapter listadp = listview.getAdapter();
+       if (listadp != null) {
+           int totalHeight = 0;
+           for (int i = 0; i < listadp.getCount(); i++) {
+               View listItem = listadp.getView(i, null, listview);
+               listItem.measure(0, 0);
+               totalHeight += listItem.getMeasuredHeight();
+           }
+           ViewGroup.LayoutParams params = listview.getLayoutParams();
+           params.height = totalHeight + (listview.getDividerHeight() * (listadp.getCount() - 1));
+           listview.setLayoutParams(params);
+           listview.requestLayout();
+","```java
+ListAdapter listadp = listview.getAdapter(); // Get the adapter associated with the listview
+if (listadp != null) { // Check if the adapter is not null
+    int totalHeight = 0; // Initialize the total height of the listview
+    for (int i = 0; i < listadp.getCount(); i++) { // Iterate through the adapter to get the height of each item
+        View listItem = listadp.getView(i, null, listview); // Get the view for the current item
+        listItem.measure(0, 0); // Measure the view to get its height
+        totalHeight += listItem.getMeasuredHeight(); // Add the height of the current item to the total height
+    }
+    ViewGroup.LayoutParams params = listview.getLayoutParams(); // Get the layout params of the listview
+    params.height = totalHeight + (listview.getDividerHeight() * (listadp.getCount() - 1)); // Set the height of the listview to the total height of the items plus the height of the dividers
+    listview.setLayoutParams(params); // Set the layout params back to the listview
+    listview.requestLayout(); // Request a layout update to apply the new height
+}
+```",5,4,4,4,"ListAdapter listadp = listview.getAdapter();  // Get the adapter for the listview
+if (listadp != null) {  // Check if the adapter is not null
+    int totalHeight = 0;  // Initialize total height
+    for (int i = 0; i < listadp.getCount(); i++) {  // Loop through all items in the adapter
+        View listItem = listadp.getView(i, null, listview);  // Get the view for each item
+        listItem.measure(0, 0);  // Measure the dimensions of the item
+        totalHeight += listItem.getMeasuredHeight();  // Add the item's height to the total height
+    }
+    ViewGroup.LayoutParams params = listview.getLayoutParams();  // Get the current layout parameters of the listview
+    params.height = totalHeight + (listview.getDividerHeight() * (listadp.getCount() - 1));  // Set the height of the listview including dividers
+    listview.setLayoutParams(params);  // Apply the new layout parameters
+    listview.requestLayout();  // Request a layout pass
+}",4,3,4,4
+,14309221,"public static boolean rectangleCircleIntersection(RectangleRegion rect, CircularRegion circle, int padding) {
+    int paddedRadius = circle.getRadius() + padding;
+    int circleDistance_x = PsyMath.abs((circle.getX()+paddedRadius) - (rect.getX()+rect.getWidth()/2));
+    int circleDistance_y = PsyMath.abs((circle.getY()+paddedRadius) - (rect.getY()+rect.getHeight()/2));
+
+    if (circleDistance_x > (rect.getWidth()/2 + paddedRadius)) { return false; }
+    if (circleDistance_y > (rect.getHeight()/2 + paddedRadius)) { return false; }
+
+    if (circleDistance_x <= (rect.getWidth()/2)) { return true; } 
+    if (circleDistance_y <= (rect.getHeight()/2)) { return true; }
+
+    int cornerDistance_sq = (int)Math.pow((circleDistance_x - rect.getWidth()/2),2) +
+                         (int)Math.pow((circleDistance_y - rect.getHeight()/2),2);
+
+    return (cornerDistance_sq <= (int)Math.pow(paddedRadius,2));
+}
+","```java
+public static boolean rectangleCircleIntersection(RectangleRegion rect, CircularRegion circle, int padding) {
+    // Padding radius includes padding
+    int paddedRadius = circle.getRadius() + padding;
+
+    // Calculating distance between circle and rectangle
+    int circleDistance_x = Math.abs((circle.getX() + paddedRadius) - (rect.getX() + rect.getWidth() / 2));
+    int circleDistance_y = Math.abs((circle.getY() + paddedRadius) - (rect.getY() + rect.getHeight() / 2));
+
+    // Checking if circle is outside of rectangle
+    if (circleDistance_x > (rect.getWidth() / 2 + paddedRadius)) {
+        return false;
+    }
+    if (circleDistance_y > (rect.getHeight() / 2 + paddedRadius)) {
+        return false;
+    }
+
+    // Checking if circle is inside rectangle
+    if (circleDistance_x <= (rect.getWidth() / 2)) {
+        return true;
+    }
+    if (circleDistance_y <= (rect.getHeight() / 2)) {
+        return true;
+    }
+
+    // Calculating squared distance between circle and closest corner of rectangle
+    int cornerDistance_sq = (int) Math.pow((circleDistance_x - rect.getWidth() / 2), 2) + (int) Math.pow((circleDistance_y - rect.getHeight() / 2), 2);
+
+    // Checking if circle intersects with corner of rectangle
+    return (cornerDistance_sq <= (int) Math.pow(paddedRadius, 2));
+}
+```",4,3,4,3,"public static boolean rectangleCircleIntersection(RectangleRegion rect, CircularRegion circle, int padding) {
+    int paddedRadius = circle.getRadius() + padding;  // Calculate the padded radius of the circle
+    int circleDistance_x = PsyMath.abs((circle.getX() + paddedRadius) - (rect.getX() + rect.getWidth() / 2));  // Calculate the x-distance between the circle and the rectangle's center
+    int circleDistance_y = PsyMath.abs((circle.getY() + paddedRadius) - (rect.getY() + rect.getHeight() / 2));  // Calculate the y-distance between the circle and the rectangle's center
+
+    if (circleDistance_x > (rect.getWidth() / 2 + paddedRadius)) { return false; }  // If the distance is greater than the sum of half the rectangle's width and the padded radius, no intersection
+    if (circleDistance_y > (rect.getHeight() / 2 + paddedRadius)) { return false; }  // If the distance is greater than the sum of half the rectangle's height and the padded radius, no intersection
+
+    if (circleDistance_x <= (rect.getWidth() / 2)) { return true; }  // If the x-distance is less than or equal to half the rectangle's width, intersection occurs
+    if (circleDistance_y <= (rect.getHeight() / 2)) { return true; }  // If the y-distance is less than or equal to half the rectangle's height, intersection occurs
+
+    int cornerDistance_sq = (int)Math.pow((circleDistance_x - rect.getWidth() / 2), 2) +
+                            (int)Math.pow((circleDistance_y - rect.getHeight() / 2), 2);  // Calculate the square of the distance from the corner
+
+    return (cornerDistance_sq <= (int)Math.pow(paddedRadius, 2));  // Return true if the corner distance is within the padded radius squared
+}",4,3,4,3
+,30800767,"float lastX, lastY;
+
+if(sprite.getY()>=700){
+  lastX = sprite.getX();
+  lastY = sprite.getY();
+  enemyIterator.remove();
+  Pools.free(sprite);
+}
+
+System.out.println(""Removed sprite coordinates where: "" + lastX + "", "" + lastY);
+","float lastX, lastY; // Declare variables lastX and lastY to store the coordinates of the sprite before it is removed
+
+if (sprite.getY() >= 700) { // Check if the sprite's y-coordinate is greater than or equal to 700
+  lastX = sprite.getX(); // Store the sprite's x-coordinate in lastX
+  lastY = sprite.getY(); // Store the sprite's y-coordinate in lastY
+  enemyIterator.remove(); // Remove the sprite from the enemy iterator
+  Pools.free(sprite); // Free the sprite from the object pool
+}
+
+// Print the removed sprite's coordinates for informational purposes
+System.out.println(""Removed sprite coordinates where: "" + lastX + "", "" + lastY);",4,4,4,4,"float lastX, lastY;
+
+if(sprite.getY() >= 700){  // Check if the sprite's Y coordinate is greater than or equal to 700
+  lastX = sprite.getX();  // Store the sprite's X coordinate
+  lastY = sprite.getY();  // Store the sprite's Y coordinate
+  enemyIterator.remove();  // Remove the sprite from the enemy iterator
+  Pools.free(sprite);  // Free the sprite back to the pool
+}
+
+System.out.println(""Removed sprite coordinates were: "" + lastX + "", "" + lastY);  // Print the last coordinates of the removed sprite",5,4,4,4
+,12880049,"import java.lang.Math;
+
+public class Homework2 {
+public static void main(String[] args){
+
+    int d1 = (int) (Math.random()*(10-3+1)+3);
+    int d2 = (int) (Math.random()*(10-3+1)+3);
+
+    double doubMatrix1[][] = new double[d1][d2];
+    double doubMatrix2[][];
+    double doubMatrix3[][];
+
+
+}
+}
+","```java
+import java.lang.Math;
+
+public class Homework2 {
+    public static void main(String[] args) {
+
+        // Generate two random integers between 3 and 10 (inclusive) for the dimensions of the matrices
+        int d1 = (int) (Math.random() * (10 - 3 + 1) + 3);
+        int d2 = (int) (Math.random() * (10 - 3 + 1) + 3);
+
+        // Declare the first double precision matrix with dimensions d1 x d2
+        double doubMatrix1[][] = new double[d1][d2];
+        
+        // Declare the second double precision matrix
+        double doubMatrix2[][];
+        
+        // Declare the third double precision matrix                                                                                            
+        double doubMatrix3[][];
+
+        // ... The rest of your code goes here
+    }
+}
+```",4,3,4,3,"import java.lang.Math;
+
+public class Homework2 {
+    public static void main(String[] args){
+
+        int d1 = (int) (Math.random() * (10 - 3 + 1) + 3);  // Generate a random integer between 3 and 10 for d1
+        int d2 = (int) (Math.random() * (10 - 3 + 1) + 3);  // Generate a random integer between 3 and 10 for d2
+
+        double doubMatrix1[][] = new double[d1][d2];  // Initialize a 2D array (d1 x d2) for doubMatrix1
+        double doubMatrix2[][];  // Declare doubMatrix2 (not initialized)
+        double doubMatrix3[][];  // Declare doubMatrix3 (not initialized)
+
+    }
+}",5,4,4,4
+,15808715,"List<String> myList;
+Collections.sort(myList, new Comparator<String>(){
+    @Override
+    public int compare(String o1, String o2) {
+        String text1 = o1.split("":"")[7];
+        String text2 = o2.split("":"")[7];
+        return text1.compareTo(text2);
+    }
+}); 
+","```java
+List<String> myList; // A list of strings to be sorted.
+
+// Sort the list using a custom comparator based on the eighth field separated by colons in each string.
+Collections.sort(myList, new Comparator<String>() {
+    @Override
+    public int compare(String o1, String o2) {
+        String text1 = o1.split("":"")[7]; // Extract the eighth field from the first string.
+        String text2 = o2.split("":"")[7]; // Extract the eighth field from the second string.
+        return text1.compareTo(text2); // Compare the extracted fields lexicographically.
+    }
+});
+```",5,4,4,4,"List<String> myList;  // Declare a list of strings
+
+Collections.sort(myList, new Comparator<String>(){
+    @Override
+    public int compare(String o1, String o2) {  // Override the compare method
+        String text1 = o1.split("":"")[7];  // Split the first string by "":"" and get the 8th element
+        String text2 = o2.split("":"")[7];  // Split the second string by "":"" and get the 8th element
+        return text1.compareTo(text2);  // Compare the extracted elements and return the result
+    }
+}); ",4,3,4,3
+,,,,,,,,,,,,
+Q4,60600464,"static List<Integer> furthestAirport(int departingAirport) { 
+    int max = 2;
+    Set<Integer> result = new LinkedHashSet<>(); 
+
+    for (int endKey : stationKeys) {
+        if (departingAirport != endKey) {  
+
+            Set<List<Integer>> tempHash = g.shortestPaths(departingAirport, endKey); 
+            if (!tempHash.isEmpty()) { 
+                for (List<Integer> tempList : tempHash) {
+
+                    if( tempList.size() > max ) { 
+                       result.clear();
+                       result.add(endKey); 
+                    } else if( tempList.size() == max ) { 
+                       result.add(endKey); 
+                    }
+                }
+            }
+        }
+    }
+
+    return new ArrayList<>(result);
+}
+","```java
+// Get the list of airport keys
+static List<Integer> furthestAirport(int departingAirport) { 
+    // Max depth for the shortest path search
+    int max = 2; 
+    // Set to store the furthest airports
+    Set<Integer> result = new LinkedHashSet<>(); 
+
+    // Iterate over all airports
+    for (int endKey : stationKeys) {
+        // Skip the departing airport
+        if (departingAirport != endKey) {  
+
+            // Get the shortest paths between the departing airport and the current airport
+            Set<List<Integer>> tempHash = g.shortestPaths(departingAirport, endKey); 
+            // If there are any shortest paths
+            if (!tempHash.isEmpty()) { 
+                // Iterate over the shortest paths
+                for (List<Integer> tempList : tempHash) {
+                    // If the current path is longer than the max depth
+                    if( tempList.size() > max ) { 
+                        // Clear the result set and add the current airport
+                        result.clear();
+                        result.add(endKey); 
+                    } 
+                    // If the current path is equal to the max depth
+                    else if( tempList.size() == max ) { 
+                        // Add the current airport to the result set
+                        result.add(endKey); 
+                    }
+                }
+            }
+        }
+    }
+
+    return new ArrayList<>(result);
+}
+```",4,3,4,3,"static List<Integer> furthestAirport(int departingAirport) { 
+    int max = 2;  // Initialize the maximum path length
+    Set<Integer> result = new LinkedHashSet<>();  // Use a LinkedHashSet to maintain insertion order and uniqueness
+
+    for (int endKey : stationKeys) {  // Iterate over all station keys
+        if (departingAirport != endKey) {  // Ensure the departing and end keys are not the same
+
+            Set<List<Integer>> tempHash = g.shortestPaths(departingAirport, endKey);  // Get the shortest paths between the departing and end keys
+            if (!tempHash.isEmpty()) {  // Check if any paths are found
+                for (List<Integer> tempList : tempHash) {  // Iterate over each path
+
+                    if (tempList.size() > max) {  // If the current path length is greater than the max
+                        result.clear();  // Clear the result set
+                        result.add(endKey);  // Add the current end key to the result set
+                        max = tempList.size();  // Update the max path length
+                    } else if (tempList.size() == max) {  // If the current path length equals the max
+                        result.add(endKey);  // Add the current end key to the result set
+                    }
+                }
+            }
+        }
+    }
+
+    return new ArrayList<>(result);  // Convert the result set to an ArrayList and return it
+}",4,3,4,3
+,35058397,"private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+    int c;
+   c=Integer.parseInt ( jTextField2.getText()) ;
+
+   jTextField1.setVisible(true );
+
+   if(c>50)
+   {
+       jTextField1.setText(""A WARD"");
+
+   }
+   else 
+        jTextField1.setText("" B WARD"");
+
+
+   revalidate();
+}      
+","private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    // Gets the text from jTextField2, parses it into an integer, and stores it in variable c
+    int c = Integer.parseInt(jTextField2.getText());
+
+    // Sets jTextField1 to visible
+    jTextField1.setVisible(true);
+
+    // Checks if c is greater than 50
+    if (c > 50) {
+        // Sets the text of jTextField1 to ""A WARD""
+        jTextField1.setText(""A WARD"");
+    } else {
+        // Sets the text of jTextField1 to ""B WARD""
+        jTextField1.setText(""B WARD"");
+    }
+
+    // Revalidates the layout to display the changes
+    revalidate();
+}",5,4,4,4,"private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+    int c;
+    c = Integer.parseInt(jTextField2.getText());  // Parse the integer value from jTextField2
+
+    jTextField1.setVisible(true);  // Make jTextField1 visible
+
+    if (c > 50) {
+        jTextField1.setText(""A WARD"");  // Set the text to ""A WARD"" if the value is greater than 50
+    } else {
+        jTextField1.setText(""B WARD"");  // Set the text to ""B WARD"" if the value is 50 or less
+    }
+
+    revalidate();  // Refresh the container
+} ",5,4,4,4
+,35701316,"class Distribution<T>{
+    List<Double> probs = new ArrayList<>();
+    List<T> events = new ArrayList<>();
+    double sumProb;
+    Random rand = new Random();
+
+    Distribution(Map<T,Double> probs){
+        for(T event : probs.keySet()){
+            sumProb += probs.get(event);
+            events.add(event);
+            this.probs.add(probs.get(event));
+        }
+    }
+
+    public T sample(){
+        T value;
+        double prob = rand.nextDouble()*sumProb;
+        int i;
+        for(i=0; prob>0; i++){
+            prob-= probs.get(i);
+        }
+        return events.get(i-1);
+    }
+}
+","```java
+class Distribution<T>{
+    List<Double> probs = new ArrayList<>(); // List of probabilities
+    List<T> events = new ArrayList<>(); // List of events
+    double sumProb; // Sum of probabilities
+    Random rand = new Random(); // Random number generator
+
+    Distribution(Map<T,Double> probs){ // Constructor that takes a map of events and probabilities
+        for(T event : probs.keySet()){ // Iterate over the events
+            sumProb += probs.get(event); // Add the probability of the event to the sum
+            events.add(event); // Add the event to the list of events
+            this.probs.add(probs.get(event)); // Add the probability to the list of probabilities
+        }
+    }
+
+    public T sample(){ // Function to sample an event
+        T value; // Variable to store the sampled event
+        double prob = rand.nextDouble()*sumProb; // Generate a random number between 0 and the sum of probabilities
+        int i; // Index of the event
+        for(i=0; prob>0; i++){ // Iterate over the events
+            prob-= probs.get(i); // Subtract the probability of the current event from the random number
+        }
+        return events.get(i-1); // Return the event at the index
+    }
+}
+```",4,3,4,3,"class Distribution<T> {
+    List<Double> probs = new ArrayList<>();  // List to store probabilities
+    List<T> events = new ArrayList<>();  // List to store events
+    double sumProb;  // Sum of all probabilities
+    Random rand = new Random();  // Random number generator
+
+    Distribution(Map<T, Double> probs) {  // Constructor accepting a map of events and their probabilities
+        for (T event : probs.keySet()) {  // Iterate over each event in the map
+            sumProb += probs.get(event);  // Add the event's probability to the total sum
+            events.add(event);  // Add the event to the events list
+            this.probs.add(probs.get(event));  // Add the event's probability to the probs list
+        }
+    }
+
+    public T sample() {  // Method to sample an event based on probabilities
+        T value;
+        double prob = rand.nextDouble() * sumProb;  // Generate a random probability value
+        int i;
+        for (i = 0; prob > 0; i++) {  // Iterate until the probability is reduced to 0 or below
+            prob -= probs.get(i);  // Subtract the current event's probability from the generated probability
+        }
+        return events.get(i - 1);  // Return the event corresponding to the generated probability
+    }
+}",4,4,4,4
+,29450736,"public class Perm {
+    private static int factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    private static void swap(int[] elements, int i, int j) {
+        int temp = elements[i];
+        elements[i] = elements[j];
+        elements[j] = temp;
+    }
+
+        private static void reverse(int[] array, int startIndex, int endIndex) {
+        int size = endIndex + 1 - startIndex;
+        int limit = startIndex + size / 2;
+        for (int i = startIndex; i < limit; i++) {
+
+            swap(array, i, 2 * startIndex + size - 1 - i);
+        }
+    }
+
+    private static void printSequence(int[] sequence) {
+        for (int i = 0; i < sequence.length; i++) {
+            System.out.printf(""%d, "", sequence[i]);
+        }
+        System.out.println();
+    }
+
+        private static void permutations(int[] sequence) {
+        final int N = sequence.length;
+
+
+        int numPermutations = factorial(N) - 1;
+
+
+        for (int n = 0; n < numPermutations; n++) {
+
+
+
+            for (int i = N - 1; i >= 1; i--) {
+
+                if (sequence[i - 1] < sequence[i]) {
+
+                    int pivotIndex = i - 1;
+
+
+
+
+                    for (int j = N - 1; j > pivotIndex; j--) {
+                        if (sequence[j] > sequence[pivotIndex]) {
+                            swap(sequence, j, pivotIndex);
+                            break;
+                        }
+                    }
+
+
+
+                    reverse(sequence, pivotIndex + 1, N - 1);
+                    break;
+                }
+            }
+
+            printSequence(sequence);
+        }
+    }
+
+    public static void main(String... args) {
+        final int N = 3;
+        int[] sequence = new int[N];
+        for (int i = 0; i < N; i++) {
+            sequence[i] = i + 1;
+        }
+
+        printSequence(sequence);
+        permutations(sequence);
+    }
+}
+","```java
+public class Perm {
+    // Calculate the factorial of a given number
+    private static int factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    // Swap two elements in an array
+    private static void swap(int[] elements, int i, int j) {
+        int temp = elements[i];
+        elements[i] = elements[j];
+        elements[j] = temp;
+    }
+
+    // Reverse a part of an array
+    private static void reverse(int[] array, int startIndex, int endIndex) {
+        int size = endIndex + 1 - startIndex;
+        int limit = startIndex + size / 2;
+        for (int i = startIndex; i < limit; i++) {
+            // Swap the elements symmetrically around the middle
+            swap(array, i, 2 * startIndex + size - 1 - i);
+        }
+    }
+
+    // Print a sequence of numbers
+    private static void printSequence(int[] sequence) {
+        for (int i = 0; i < sequence.length; i++) {
+            System.out.printf(""%d, "", sequence[i]);
+        }
+        System.out.println();
+    }
+
+    // Generate permutations of a given sequence
+    private static void permutations(int[] sequence) {
+        final int N = sequence.length;
+
+        // Calculate the total number of permutations
+        int numPermutations = factorial(N) - 1;
+
+        // Iterate through each permutation
+        for (int n = 0; n < numPermutations; n++) {
+            // Find the largest index where the sequence is in decreasing order
+            for (int i = N - 1; i >= 1; i--) {
+                if (sequence[i - 1] < sequence[i]) {
+                    // Find the smallest element greater than the pivot element on the right side
+                    int pivotIndex = i - 1;
+                    for (int j = N - 1; j > pivotIndex; j--) {
+                        if (sequence[j] > sequence[pivotIndex]) {
+                            swap(sequence, j, pivotIndex);
+                            break;
+                        }
+                    }
+                    // Reverse the sequence after the pivot element
+                    reverse(sequence, pivotIndex + 1, N - 1);
+                    break;
+                }
+            }
+            // Print the current permutation
+            printSequence(sequence);
+        }
+    }
+
+    public static void main(String... args) {
+        final int N = 3;
+        int[] sequence = new int[N];
+        for (int i = 0; i < N; i++) {
+            sequence[i] = i + 1;
+        }
+
+        printSequence(sequence);
+        permutations(sequence);
+    }
+}
+```",4,3,4,3,"public class Perm {
+    private static int factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {  // Calculate factorial of n
+            fact *= i;
+        }
+        return fact;
+    }
+
+    private static void swap(int[] elements, int i, int j) {  // Swap elements at indices i and j
+        int temp = elements[i];
+        elements[i] = elements[j];
+        elements[j] = temp;
+    }
+
+    private static void reverse(int[] array, int startIndex, int endIndex) {  // Reverse the array from startIndex to endIndex
+        int size = endIndex + 1 - startIndex;
+        int limit = startIndex + size / 2;
+        for (int i = startIndex; i < limit; i++) {
+            swap(array, i, 2 * startIndex + size - 1 - i);  // Swap elements to reverse the array segment
+        }
+    }
+
+    private static void printSequence(int[] sequence) {  // Print the sequence
+        for (int i = 0; i < sequence.length; i++) {
+            System.out.printf(""%d, "", sequence[i]);
+        }
+        System.out.println();
+    }
+
+    private static void permutations(int[] sequence) {  // Generate permutations
+        final int N = sequence.length;
+        int numPermutations = factorial(N) - 1;  // Calculate the number of permutations
+
+        for (int n = 0; n < numPermutations; n++) {
+            for (int i = N - 1; i >= 1; i--) {
+                if (sequence[i - 1] < sequence[i]) {  // Find the rightmost element that is smaller than its successor
+                    int pivotIndex = i - 1;
+
+                    for (int j = N - 1; j > pivotIndex; j--) {  // Find the rightmost element that is greater than the pivot
+                        if (sequence[j] > sequence[pivotIndex]) {
+                            swap(sequence, j, pivotIndex);  // Swap the pivot with the found element
+                            break;
+                        }
+                    }
+
+                    reverse(sequence, pivotIndex + 1, N - 1);  // Reverse the sequence after the pivot
+                    break;
+                }
+            }
+            printSequence(sequence);  // Print the current permutation
+        }
+    }
+
+    public static void main(String... args) {
+        final int N = 3;
+        int[] sequence = new int[N];
+        for (int i = 0; i < N; i++) {
+            sequence[i] = i + 1;  // Initialize the sequence with 1 to N
+        }
+
+        printSequence(sequence);  // Print the initial sequence
+        permutations(sequence);  // Generate and print all permutations
+    }
+}",4,3,4,3
+,48334094,"WebElement pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul""));
+List < WebElement > allPaginations = pagination.findElements(By.tagName(""a""));
+WebElement title = d.findElement(By.linkText("">""));
+System.out.println(allPaginations.size());
+if (allPaginations.size() > 0)
+{
+    System.out.println(""Pagination exists"");
+    for (int i = 0; i < allPaginations.size(); i++)
+    {
+        pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul""));
+        allPaginations = pagination.findElements(By.tagName(""a""));
+        Thread.sleep(3000);
+        allPaginations.get(i).click();
+        d.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        List < WebElement > ngo_Names = d.findElements(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/table/tbody/tr/td[2]""));
+        System.out.println(ngo_Names.size());
+
+    }
+}
+else
+{
+    System.out.println(""Pagination doesn't exists"");
+}
+","WebElement pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul"")); // Store the web element for pagination
+
+List < WebElement > allPaginations = pagination.findElements(By.tagName(""a"")); // Store all pagination elements
+
+WebElement title = d.findElement(By.linkText("">"")); // Store the web element for title (the '>' symbol)
+
+System.out.println(allPaginations.size()); // Print the number of pagination elements
+
+if (allPaginations.size() > 0) // If there are pagination elements
+{
+    System.out.println(""Pagination exists""); // Print that pagination exists
+
+    for (int i = 0; i < allPaginations.size(); i++) // Iterate through the pagination elements
+    {
+        pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul"")); // Store the web element for pagination again
+
+        allPaginations = pagination.findElements(By.tagName(""a"")); // Store all pagination elements again
+
+        Thread.sleep(3000); // Sleep for 3 seconds (to wait for the page to load)
+
+        allPaginations.get(i).click(); // Click on the pagination element at index 'i'
+
+        d.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS); // Set the page load timeout to 5 seconds
+        // Note: This line sets the amount of time WebDriver will wait for a web element to be found.
+
+        List < WebElement > ngo_Names = d.findElements(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/table/tbody/tr/td[2]"")); // Store all NGO names
+
+        System.out.println(ngo_Names.size()); // Print the number of NGO names
+    }
+}
+else // If there are no pagination elements
+{
+    System.out.println(""Pagination doesn't exists""); // Print that pagination doesn't exist
+}",3,2,4,3,"WebElement pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul""));  // Locate the pagination element
+List<WebElement> allPaginations = pagination.findElements(By.tagName(""a""));  // Find all anchor tags within the pagination element
+WebElement title = d.findElement(By.linkText("">""));  // Find the element for the next page button
+System.out.println(allPaginations.size());  // Print the number of pagination links
+
+if (allPaginations.size() > 0) {  // Check if pagination exists
+    System.out.println(""Pagination exists"");
+    for (int i = 0; i < allPaginations.size(); i++) {  // Iterate through each pagination link
+        pagination = d.findElement(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/ul""));  // Re-locate the pagination element
+        allPaginations = pagination.findElements(By.tagName(""a""));  // Re-find all anchor tags within the pagination element
+        Thread.sleep(3000);  // Wait for 3 seconds
+        allPaginations.get(i).click();  // Click on the current pagination link
+        d.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);  // Wait for the page to load for up to 5 seconds
+        List<WebElement> ngo_Names = d.findElements(By.xpath(""/html/body/div[9]/div[1]/div[3]/div/div/div[2]/table/tbody/tr/td[2]""));  // Find all NGO names on the current page
+        System.out.println(ngo_Names.size());  // Print the number of NGO names found
+    }
+} else {
+    System.out.println(""Pagination doesn't exist"");  // Print message if pagination does not exist
+}",4,3,3,3

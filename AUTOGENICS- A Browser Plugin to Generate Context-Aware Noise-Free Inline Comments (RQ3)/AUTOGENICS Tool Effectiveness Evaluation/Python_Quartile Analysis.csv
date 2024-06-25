@@ -1,0 +1,729 @@
+Quartile,Id,Extracted Code,Code with Inline Comments (Gemini),Accuracy,Adequacy,Conciseness,Usefulness,Code with Inline Comments (AUTOGENICS),AUTOGENICS Accuracy,AUTOGENICS Adequacy,AUTOGENICS Conciseness,AUTOGENICS Usefulness
+Q1,68111344,"[len(i) for i in variant]
+",[len(i) for i in variant]  # Compute the length of each item in 'variant' and store it in a list,5,3,4,4,"# Get the length of each sublist in the nested list 'variant'
+[len(i) for i in variant] ",5,4,4,4
+,25195471,"import pandas as pd
+df=pd.read_csv('your.csv')
+","```python
+import pandas as pd  # Importing the pandas library
+
+# Reading the CSV file into a DataFrame named 'df'
+df = pd.read_csv('your.csv')
+```",4,4,4,3,"import pandas as pd
+# Read the CSV file into a pandas DataFrame
+df=pd.read_csv('your.csv')",5,5,5,4
+,33942489,"import ast
+a=ast.literal_eval(l)
+","import ast  # Import the ast module for handling Python abstract syntax trees
+a = ast.literal_eval(l)  # Evaluate the string 'l' as a literal expression and assign it to 'a'",4,3,5,4,"import ast
+# Convert the string representation of the list to a Python list using ast.literal_eval
+a = ast.literal_eval(l) ",5,4,5,4
+,68366043,"models.DecimalField(max_digits=5, decimal_places=2)
+","models.DecimalField(  # Represents a fixed-precision decimal number.
+    max_digits=5,  # Maximum number of digits in the field.
+    decimal_places=2,  # Number of decimal places in the field.
+)",4,4,5,4,"# Use DecimalField to store and display prices with two decimal places
+models.DecimalField(max_digits=5, decimal_places=2) ",4,4,5,5
+,56592828,"df[""Col""].str.contains(r""\bScan\b"")
+","df[""Col""].str.contains(r""\bScan\b"") # Checks if the column 'Col' contains the substring 'Scan' as a whole word",5,3,4,4,"df[""Col""].str.contains(r""\bScan\b"")  # Use a regular expression to find ""Scan"" as a whole word, excluding ""Scan-Steuerung""",5,4,4,5
+,,,,,,,,,,,,
+Q2,1523378,"for line in fileinput.input([""file.dat""]):
+  if not fileinput.isfirstline():
+    data = proces_line(line);
+    output(data)
+","for line in fileinput.input([""file.dat""]):
+  # Check if it's not the first line of the input file
+  if not fileinput.isfirstline():
+    # Process the current line of the input file
+    data = proces_line(line);
+    # Output the processed data
+    output(data)",4,3,4,4,"for line in fileinput.input([""file.dat""]):
+  if not fileinput.isfirstline():
+    data = proces_line(line); # Process the line if it's not the header
+    output(data) # Output the processed data",5,4,5,4
+,69383213,"N = 100 
+with open(""myLogFile.txt"",""r+"") as f:
+   data = f.readlines()
+   if len(data) > N: data = data[0:N]
+   f.seek(0)
+   f.writelines(data)
+   f.truncate()
+","N = 100  # Maximum number of lines to keep in the log file
+with open(""myLogFile.txt"", ""r+"") as f:  # Open the log file in read/write mode
+    data = f.readlines()  # Read the entire file into a list
+    if len(data) > N:  # Check if the file has more lines than the maximum
+        data = data[0:N]  # Truncate the list to the maximum number of lines
+    f.seek(0)  # Rewind the file pointer to the beginning of the file
+    f.writelines(data)  # Write the truncated list back to the file
+    f.truncate()  # Truncate the file to its current size",5,4,4,5,"N = 100 # number of lines you want to keep
+with open(""myLogFile.txt"",""r+"") as f:
+   data = f.readlines() # read all lines from the file
+   if len(data) > N:
+       data = data[0:N] # keep only the first N lines
+   f.seek(0) # move the file pointer to the beginning
+   f.writelines(data) # write the remaining lines back to the file
+   f.truncate() # truncate the file to the current position, effectively removing the rest",5,4,4,5
+,68149312,"result = []
+
+nlp = spacy.load(""en"")
+doc = nlp(generics)
+for chunk in doc.noun_chunks:
+    result.append((chunk.text, chunk.root.text, chunk.root.dep_, chunk.root.head.text))
+","```python
+# Initialize an empty list to store the results
+result = []
+
+# Load the spaCy English language model
+nlp = spacy.load(""en"")
+
+# Process the text
+doc = nlp(generics)
+
+# Iterate over the noun chunks in the document
+for chunk in doc.noun_chunks:
+    # Append a tuple of the chunk text, root text, root dependency, and root head text to the result list
+    result.append((chunk.text, chunk.root.text, chunk.root.dep_, chunk.root.head.text))
+```",5,4,4,4,"result = []  # Initialize an empty list to store the parsed generics
+
+nlp = spacy.load(""en"")  # Load the English language model
+doc = nlp(generics)  # Process the text with the loaded model
+
+for chunk in doc.noun_chunks:
+    result.append((chunk.text, chunk.root.text, chunk.root.dep_, chunk.root.head.text))  # Append the extracted information as a tuple to the result list",5,5,5,5
+,56808282,"a=5
+c=15
+result = func(a=a, c=c, b=a+c)
+","a=5 # Initialize variable 'a' with value 5
+c=15 # Initialize variable 'c' with value 15
+result = func(a=a, c=c, b=a+c) # Call function 'func' with keyword arguments 'a', 'c', and 'b'",4,3,4,4,"a=5  # Assign the value 5 to variable 'a'
+c=15  # Assign the value 15 to variable 'c'
+result = func(a=a, c=c, b=a+c)  # Call the function 'func' with parameters 'a', 'c', and 'b' calculated as the sum of 'a' and 'c'",5,4,4,4
+,74953809,"df_sorted = df.sort_values('Value').reset_index(drop=True)
+m = df_sorted['Value'].cumsum().le(df['Value'].sum()*0.3)
+print(df_sorted.loc[m])
+","```python
+# Sort the DataFrame 'df' in ascending order of 'Value' and reset the index
+df_sorted = df.sort_values('Value').reset_index(drop=True)
+
+# Calculate the cumulative sum of 'Value' and check if it is less than or equal to 30% of the total 'Value' sum
+m = df_sorted['Value'].cumsum().le(df['Value'].sum()*0.3)
+
+# Print the rows from 'df_sorted' where the cumulative sum of 'Value' is less than or equal to 30% of the total sum
+print(df_sorted.loc[m])
+```",4,4,4,4,"# Sort the DataFrame by 'Value' in ascending order and reset the index
+df_sorted = df.sort_values('Value').reset_index(drop=True)
+# Calculate the cumulative sum of 'Value' and check if it's less than or equal to 30% of the total 'Value' sum
+m = df_sorted['Value'].cumsum().le(df['Value'].sum()*0.3)
+print(df_sorted.loc[m])",4,5,4,5
+,,,,,,,,,,,,
+Q3,53622221,"from toolz.itertoolz import sliding_window
+d=set()
+data = ""124136""
+for i in list(sliding_window(2, data)):
+    if 1<=int(i[0])<=26:
+        d.add(i[0])
+    if 1<=int(i[1])<=26:
+        d.add(i[1])
+    if 1<=int(i[0]+i[1])<=26:
+        d.add(i[0]+i[1])
+print(d) 
+","from toolz.itertoolz import sliding_window  # Sliding window tool for creating overlapping sequences
+
+d = set()  # Initialize a set to store the unique characters
+
+data = ""124136""  # Input string
+
+for i in list(sliding_window(2, data)):  # Iterate over 2-sized overlapping windows in the string
+    if 1 <= int(i[0]) <= 26:  # Check if the first character in the window is a valid letter
+        d.add(i[0])  # Add it to the set
+
+    if 1 <= int(i[1]) <= 26:  # Check if the second character in the window is a valid letter
+        d.add(i[1])  # Add it to the set
+
+    if 1 <= int(i[0] + i[1]) <= 26:  # Check if the concatenation of both characters is a valid letter
+        d.add(i[0] + i[1])  # Add it to the set
+
+print(d)  # Print the set of unique characters",5,4,3,3,"from toolz.itertoolz import sliding_window
+d=set() # Initialize an empty set to store the valid letter encodings
+data = ""124136"" # Input string of digits
+for i in list(sliding_window(2, data)):
+    if 1<=int(i[0])<=26:
+        d.add(i[0]) # Add the first digit to the set if it's valid
+    if 1<=int(i[1])<=26:
+        d.add(i[1]) # Add the second digit to the set if it's valid
+    if 1<=int(i[0]+i[1])<=26:
+        d.add(i[0]+i[1]) # Add the combined pair to the set if it's valid
+print(d)",5,4,3,4
+,63239361,"from timeit import default_timer as timer
+start = timer()
+function_you_want_to_time()
+
+
+end = timer()
+elapsed = str(end - start)
+print(f'Run time in seconds: {elapsed}')
+","from timeit import default_timer as timer  # Import the default timer from timeit
+
+start = timer()  # Start the timer
+
+function_you_want_to_time()  # Call the function you want to time
+
+end = timer()  # Stop the timer
+
+elapsed = str(end - start)  # Calculate the elapsed time
+
+print(f'Run time in seconds: {elapsed}')  # Print the elapsed time",4,3,4,4,"from timeit import default_timer as timer
+start = timer() # Start timer
+function_you_want_to_time() # Execute the function you want to time
+
+end = timer() # Stop timer
+elapsed = str(end - start) # Calculate elapsed time
+print(f'Run time in seconds: {elapsed}')",5,4,4,5
+,64475629,"t = [1,2,4,8] 
+raw_1 = [0.02, 0.02, 0.3, 0.4] 
+raw_2 = [0.6, 0.7, 0.2, 0.3]
+x = range(len(t))
+plt.plot(x, raw_1, color='r', marker='o') 
+plt.plot(x, raw_2, color='b', marker='o')
+plt.xticks(x,t)
+plt.show()
+","```python
+# List of time values
+t = [1,2,4,8] 
+
+# Raw data for series 1
+raw_1 = [0.02, 0.02, 0.3, 0.4] 
+
+# Raw data for series 2
+raw_2 = [0.6, 0.7, 0.2, 0.3]
+
+# x-axis values
+x = range(len(t))
+
+# Plot series 1 with red color and circle markers
+plt.plot(x, raw_1, color='r', marker='o') 
+
+# Plot series 2 with blue color and circle markers
+plt.plot(x, raw_2, color='b', marker='o')
+
+# Set x-axis ticks and labels using 't' values
+plt.xticks(x,t)
+
+# Display the plot
+plt.show()
+```",5,4,4,5,"t = [1,2,4,8] # Define the desired x-axis values
+raw_1 = [0.02, 0.02, 0.3, 0.4] # Define the data for the first curve
+raw_2 = [0.6, 0.7, 0.2, 0.3] # Define the data for the second curve
+x = range(len(t)) # Generate a range of indices for plotting
+plt.plot(x, raw_1, color='r', marker='o') # Plot the first curve with red color and circle markers
+plt.plot(x, raw_2, color='b', marker='o') # Plot the second curve with blue color and circle markers
+plt.xticks(x,t) # Set the x-axis ticks to the desired values (1, 2, 4, 8)
+plt.show() # Display the plot",5,5,4,5
+,26941813,"import pygame
+import time
+notes = ['note1.mp3', 'note2.mp3', 'note3.mp3', 'note4.mp3']
+pygame.init()
+
+for note in notes:
+    pygame.mixer.music.load(note)
+    pygame.mixer.music.play()
+    time.sleep(2)
+","import pygame
+import time
+
+# Initialize the Pygame library
+pygame.init()
+
+# Define a list of notes to play
+notes = ['note1.mp3', 'note2.mp3', 'note3.mp3', 'note4.mp3']
+
+# Loop through the list of notes
+for note in notes:
+    # Load the note into the music player
+    pygame.mixer.music.load(note)
+
+    # Play the note
+    pygame.mixer.music.play()
+
+    # Sleep for 2 seconds to allow the note to play
+    time.sleep(2)",5,4,4,5,"import pygame
+import time
+
+notes = ['note1.mp3', 'note2.mp3', 'note3.mp3', 'note4.mp3'] # list of sound files for each note
+pygame.init() # initializes the pygame library
+
+for note in notes:
+    pygame.mixer.music.load(note) # loads the current note into the pygame mixer
+    pygame.mixer.music.play() # plays the loaded note
+    time.sleep(1) # pauses for 1 second before playing the next note",5,4,5,5
+,40620598," for row in reader:
+    if row[0] in my_dict.keys():
+       my_dict[row[0]].extend(row)
+    else:
+       my_dict[row[0]]=row
+
+ for v in my_dict.values():
+    writer.writerow(v)
+","```python
+# Iterate over each row in the reader object
+for row in reader:
+    # Check if the first element of the row (row[0]) is a key in the my_dict dictionary
+    if row[0] in my_dict.keys():
+        # If the key is found, extend the corresponding value list with the entire row
+        my_dict[row[0]].extend(row)
+    else:
+        # If the key is not found, add a new key-value pair to the dictionary with the first element of the row as the key and the entire row as the value
+        my_dict[row[0]] = row
+
+# Iterate over the values in the my_dict dictionary
+for v in my_dict.values():
+    # Write the current value to the writer object
+    writer.writerow(v)
+```",5,4,3,4,"for row in reader:
+    if row[0] in my_dict.keys():
+       # Extend the list associated with the key (row[0]) by appending the current row
+       my_dict[row[0]].extend(row) 
+    else:
+       # If the key doesn't exist, create a new entry in the dictionary with the first column value as the key and the row as the value
+       my_dict[row[0]]=row
+  # ...now we are at the bottom of your code, writing to the csv
+  for v in my_dict.values():
+    # Write each merged row to the output CSV using the writer object
+    writer.writerow(v)",5,5,5,4
+,,,,,,,,,,,,
+Q4,74845711,"for i in range(0, 1000):
+if pitch()<=43:
+   Fpitch = ""Count 1-0""
+elif pitch()>=59:
+   Fpitch = ""Count 0-1""
+else:
+    Fpitch = ""0-0 In-Play""
+    if 18<= In_Play()<41:
+        pa_end = ""0-0 Single""
+    elif 10<= In_Play()<18:
+        pa_end = ""0-0 Double""
+    elif 0<= In_Play()<1:
+        pa_end = ""0-0 Triple""
+    elif 1<= In_Play()<10:
+        pa_end = ""0-0 Home Run""
+    else:
+        pa_end = ""0-0 OUT""
+    pa_result.append(pa_end)
+first_pitch_result.append(Fpitch)
+","```python
+for i in range(0, 1000):  # Iterate 1000 times
+    if pitch() <= 43:    # Check if pitch value is less than or equal to 43
+        Fpitch = ""Count 1-0""  # Assign count as 1-0
+    elif pitch() >= 59:   # Check if pitch value is greater than or equal to 59
+        Fpitch = ""Count 0-1""  # Assign count as 0-1
+    else:
+        Fpitch = ""0-0 In-Play""  # Assign count as 0-0 In-Play
+        if 18 <= In_Play() < 41:   # Check if In_Play value is between 18 and 41
+            pa_end = ""0-0 Single""  # Assign result as 0-0 Single
+        elif 10 <= In_Play() < 18:  # Check if In_Play value is between 10 and 18
+            pa_end = ""0-0 Double""  # Assign result as 0-0 Double
+        elif 0 <= In_Play() < 1:   # Check if In_Play value is between 0 and 1
+            pa_end = ""0-0 Triple""  # Assign result as 0-0 Triple
+        elif 1 <= In_Play() < 10:  # Check if In_Play value is between 1 and 10
+            pa_end = ""0-0 Home Run""  # Assign result as 0-0 Home Run
+        else:
+            pa_end = ""0-0 OUT""  # Assign result as 0-0 OUT
+        pa_result.append(pa_end)  # Append result to pa_result list
+    first_pitch_result.append(Fpitch)  # Append count to first_pitch_result list
+```",5,3,4,4,"for i in range(0, 1000):
+    if pitch() <= 43:
+        # If the pitch is a ball, set the first pitch count to ""Count 1-0""
+        Fpitch = ""Count 1-0""
+    elif pitch() >= 59:
+        # If the pitch is a strike, set the first pitch count to ""Count 0-1""
+        Fpitch = ""Count 0-1""
+    else:
+        # If the pitch is in-play, set the first pitch count to ""0-0 In-Play""
+        Fpitch = ""0-0 In-Play""
+        if 18 <= In_Play() < 41:
+            # If the outcome is a single, set the PA result to ""0-0 Single""
+            pa_end = ""0-0 Single""
+        elif 10 <= In_Play() < 18:
+            # If the outcome is a double, set the PA result to ""0-0 Double""
+            pa_end = ""0-0 Double""
+        elif 0 <= In_Play() < 1:
+            # If the outcome is a triple, set the PA result to ""0-0 Triple""
+            pa_end = ""0-0 Triple""
+        elif 1 <= In_Play() < 10:
+            # If the outcome is a home run, set the PA result to ""0-0 Home Run""
+            pa_end = ""0-0 Home Run""
+        else:
+            # If the outcome is an out, set the PA result to ""0-0 OUT""
+            pa_end = ""0-0 OUT""
+        # Append the PA result to the pa_result list
+        pa_result.append(pa_end)
+    # Append the first pitch result to the first_pitch_result list
+    first_pitch_result.append(Fpitch)",5,4,4,5
+,68814112,"import pandas as pd
+
+df = pd.read_excel('merged.xlsx',dtype=str)
+writer = pd.ExcelWriter(""output.xlsx"", engine=""xlsxwriter"")
+df.to_excel(writer, sheet_name='Sheet1',  index=False)
+workbook = writer.book
+worksheet = writer.sheets['Sheet1']
+
+for column in df:
+    value = df[column].astype(str).map(len).max()
+
+    if value > 50:   
+        column_width = len(column)
+    else:
+        column_width = max(value, len(column))
+        
+    col_idx = df.columns.get_loc(column)
+    worksheet.set_column(col_idx, col_idx, column_width)
+    
+writer.save()
+","```python
+import pandas as pd
+
+# Read the Excel file and convert all values to strings
+df = pd.read_excel('merged.xlsx', dtype=str)
+
+# Create an ExcelWriter object to write to a new Excel file
+writer = pd.ExcelWriter(""output.xlsx"", engine=""xlsxwriter"")
+
+# Write the DataFrame to the new Excel file, specifying the sheet name and excluding the index
+df.to_excel(writer, sheet_name='Sheet1',  index=False)
+
+# Get the workbook and worksheet objects from the ExcelWriter
+workbook = writer.book
+worksheet = writer.sheets['Sheet1']
+
+# Iterate through each column in the DataFrame
+for column in df:
+    # Calculate the maximum length of the values in the column
+    value = df[column].astype(str).map(len).max()
+    
+    # Set the column width based on the maximum length of the values or the column name, whichever is greater
+    if value > 50:
+        column_width = len(column)
+    else:
+        column_width = max(value, len(column))
+
+    # Get the index of the column
+    col_idx = df.columns.get_loc(column)
+
+    # Set the column width in the worksheet
+    worksheet.set_column(col_idx, col_idx, column_width)
+
+# Save the changes to the Excel file
+writer.save()
+```",4,4,4,5,"import pandas as pd
+
+df = pd.read_excel('merged.xlsx',dtype=str)  # Read the Excel file into a pandas DataFrame
+writer = pd.ExcelWriter(""output.xlsx"", engine=""xlsxwriter"")  # Create an ExcelWriter object
+df.to_excel(writer, sheet_name='Sheet1',  index=False)  # Write the DataFrame to the Excel file
+workbook = writer.book  # Get the workbook object
+worksheet = writer.sheets['Sheet1']  # Get the worksheet object
+
+for column in df:
+    value = df[column].astype(str).map(len).max()  # Get the maximum length of values in the current column
+    
+    if value > 50:
+        column_width = len(column)  # Set the column width to the length of the column name
+    else:
+        column_width = max(value, len(column))  # Otherwise, set the column width to the maximum of the maximum length and the length of the column name
+        
+    col_idx = df.columns.get_loc(column)  # Get the column index
+    worksheet.set_column(col_idx, col_idx, column_width)  # Set the column width for the current column
+    
+writer.save()  # Save the Excel file",5,5,4,5
+,24424465,"import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+
+a = np.random.rand(100)    
+b = np.random.ranf(100)    
+df = pd.DataFrame({'a': a, 'b': b})
+
+
+c_norm  = colors.Normalize(vmin=min(df.b), vmax=max(df.b))
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))    
+color_vals = [scalar_map.to_rgba(val) for val in df.b]
+
+
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals)
+","```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+# Generate random data for 'a' and 'b' columns
+a = np.random.rand(100)    
+b = np.random.ranf(100)    
+
+# Create a Pandas DataFrame with columns 'a' and 'b'
+df = pd.DataFrame({'a': a, 'b': b})
+
+# Normalize the 'b' column values between min and max
+c_norm  = colors.Normalize(vmin=min(df.b), vmax=max(df.b))
+
+# Create a ScalarMappable object to map 'b' values to colors
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))    
+
+# Map 'b' values to colors and convert them to RGB
+color_vals = [scalar_map.to_rgba(val) for val in df.b]
+
+# Plot vertical lines with colors mapped to 'b' values
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals)
+```",5,5,4,4,"import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+#make the dataframe
+a = np.random.rand(100)    
+b = np.random.ranf(100)    
+df = pd.DataFrame({'a': a, 'b': b})
+
+# do the colour mapping
+c_norm  = colors.Normalize(vmin=min(df.b), vmax=max(df.b)) # Normalize color values based on 'b' column range
+scalar_map = cmx.ScalarMappable(norm=c_norm, cmap=plt.get_cmap('jet'))    # Create a colormap for the normalized values
+color_vals = [scalar_map.to_rgba(val) for val in df.b] # Map each 'b' value to a color from the colormap
+
+# make the plot
+plt.vlines(df.index, np.zeros_like(df.a), df.a, colors=color_vals) # Plot vertical lines with x-values from df.index, y-values from df.a, and colors determined by color_vals",5,5,4,5
+,64640158,"import xml.etree.ElementTree as ET
+import json
+
+p = r""d:\tmp.xml""
+tree = ET.parse(p)
+
+root = tree.getroot()
+
+json_dict = {}
+
+json_dict[root.tag] = root.text
+
+json_dict['response_list'] = []
+
+
+for node in root:
+    tmp_dict = {}
+    for response_info in node:
+        tmp_dict[response_info.tag] = response_info.text
+    json_dict['response_list'].append(tmp_dict)
+
+with open(r'd:\out.json', 'w') as of:
+    json.dump(json_dict, of)
+","import xml.etree.ElementTree as ET
+import json
+
+# Parsing the XML file
+p = r""d:\tmp.xml""
+tree = ET.parse(p)
+
+# Getting the root element of the XML tree
+root = tree.getroot()
+
+json_dict = {}
+
+# Adding the root element's tag and text to the JSON dictionary
+json_dict[root.tag] = root.text
+
+json_dict['response_list'] = []
+
+# Iterating over the child elements of the root element
+for node in root:
+    tmp_dict = {} # Creating a temporary dictionary for each child element
+    # Iterating over the child elements of the current child element
+    for response_info in node:
+        tmp_dict[response_info.tag] = response_info.text # Adding the child element's tag and text to the temporary dictionary
+    json_dict['response_list'].append(tmp_dict) # Adding the temporary dictionary to the 'response_list' list in the JSON dictionary
+
+# Saving the JSON dictionary to a file
+with open(r'd:\out.json', 'w') as of:
+    json.dump(json_dict, of)",5,5,3,5,"import xml.etree.ElementTree as ET
+import json
+
+p = r""d:\tmp.xml""  # Define path to the XML file
+tree = ET.parse(p)  # Parse the XML file using ElementTree
+
+root = tree.getroot()  # Get the root element of the XML tree
+
+json_dict = {}  # Initialize an empty dictionary to store the JSON data
+
+json_dict[root.tag] = root.text  # Add the root element's tag and text to the dictionary
+
+json_dict['response_list'] = []  # Initialize an empty list to store the response data
+
+for node in root:
+    tmp_dict = {}  # Create a temporary dictionary to store response information
+    for response_info in node:
+        tmp_dict[response_info.tag] = response_info.text  # Add tag and text to the temporary dictionary
+    json_dict['response_list'].append(tmp_dict)  # Append the temporary dictionary to the response list
+
+# Open a file for writing the JSON data
+with open(r'd:\out.json', 'w') as of:
+    json.dump(json_dict, of)  # Dump the JSON dictionary to the file",5,5,4,5
+,24659800,"import numpy as np
+import matplotlib.pyplot as plt
+import math
+import matplotlib.animation as animation
+
+er = 6378100*10
+mr = 1737400*10
+em = 5.97219*10**24
+mm = 7.34767309*10**22
+d = 384400000
+G = 6.67384*10**(-11)         
+mv = -1023
+nts = 10000                   
+
+
+def circle(r, h, k, a):
+    x = r*math.cos(a)+h
+    y = r*math.sin(a)+k
+
+    moony.center = x,y
+
+def simData():
+    tmax = 10000*nts
+    ts = 10000
+    x = 0.0
+    t = 0.0
+    while t < tmax:
+        n = 0
+        for i in range(120):
+            circle(mr, d, mv*t, n)
+            n = n + math.pi/60
+        t = t + ts
+        yield x, t
+
+def simPoints(simData):
+    x, t = simData[0], simData[1]
+    time_text.set_text(time_template%(t))
+    line.set_data(t, x)
+    return line, time_text
+
+
+
+fig = plt.figure()
+ax = plt.axes(xlim=(-430000000, 430000000), ylim=(-430000000, 430000000))
+
+
+moony = plt.Circle((0,0), mr, facecolor=(.8,.8,.8))
+ax.add_artist(moony)
+
+time_template = 'Time = %.1f s'    
+time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
+
+ani = animation.FuncAnimation(fig, simPoints, simData, blit=False,\
+     interval=10, repeat=True)
+plt.show()
+","```python
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+import matplotlib.animation as animation
+
+# Define the physical constants
+er = 6378100*10     # Earth's radius in meters
+mr = 1737400*10     # Moon's radius in meters
+em = 5.97219*10**24  # Earth's mass in kilograms
+mm = 7.34767309*10**22  # Moon's mass in kilograms
+d = 384400000      # Distance between Earth and Moon in meters
+G = 6.67384*10**(-11)  # Gravitational constant
+mv = -1023           # Moon's velocity in meters per second
+nts = 10000          # Number of time steps
+
+# Define the function to calculate the position of the Moon
+def circle(r, h, k, a):
+    # Calculate the x and y coordinates of the Moon
+    x = r*math.cos(a)+h
+    y = r*math.sin(a)+k
+
+    # Set the center of the Moon's circle
+    moony.center = x,y
+
+# Define the function to generate the simulation data
+def simData():
+    # Define the maximum time and time step
+    tmax = 10000*nts
+    ts = 10000
+
+    # Initialize the position and time
+    x = 0.0
+    t = 0.0
+
+    # Simulate the motion of the Moon
+    while t < tmax:
+        n = 0
+        for i in range(120):
+            # Calculate the position of the Moon
+            circle(mr, d, mv*t, n)
+
+            # Update the angle to move the Moon
+            n = n + math.pi/60
+        
+        # Update the time
+        t = t + ts
+
+        # Yield the x-position and time for plotting
+        yield x, t
+
+# Define the function to update the plot
+def simPoints(simData):
+    # Get the x-position and time from the simulation data
+    x, t = simData[0], simData[1]
+
+    # Update the text to show the time
+    time_text.set_text(time_template%(t))
+
+    # Update the line to show the x-position over time
+    line.set_data(t, x)
+
+    # Return the line and text objects for animation
+    return line, time_text
+
+# Create the figure and axes
+fig = plt.figure()
+ax = plt.axes(xlim=(-430000000, 430000000), ylim=(-430000000, 430000000))
+
+# Create the circle to represent the Moon
+moony = plt.Circle((0,0), mr, facecolor=(.8,.8,.8))
+ax.add_artist(moony)
+
+# Create the text object to show the time
+time_template = 'Time = %.1f s'    
+time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
+
+# Create the animation
+ani = animation.FuncAnimation(fig, simPoints, simData, blit=False,
+     interval=10, repeat=True)
+
+# Show the plot
+plt.show()
+```",4,4,4,4,"import cv2
+import numpy as np
+
+img = cv2.imread('2.jpg') # Load the image
+res = img.copy() # Create a copy of the image for results
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV) # Convert the image to HSV color space
+
+lower_green = np.array([40,50,50]) # Define lower bound for green color range
+upper_green = np.array([80,255,255]) # Define upper bound for green color range
+r2, g2, b2 = 255, 0, 0 # Define the replacement color (red in this case)
+
+mask = cv2.inRange(hsv, lower_green, upper_green) # Create a mask for the green color range
+
+mask = mask/255 # Normalize the mask
+mask = mask.astype(np.bool) # Convert mask to boolean type
+res[:,:,:3][mask] = [b2, g2, r2] # Replace pixels within the mask with the replacement color (red)
+
+cv2.imshow('image', img) # Display the original image
+cv2.imshow('Result', res) # Display the result image
+cv2.waitKey(0) # Wait for a key press
+cv2.destroyAllWindows() # Close all windows",4,4,4,4
