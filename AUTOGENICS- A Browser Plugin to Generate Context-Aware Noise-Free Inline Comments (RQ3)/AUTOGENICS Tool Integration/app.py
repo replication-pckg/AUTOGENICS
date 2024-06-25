@@ -13,7 +13,7 @@ app = Flask(__name__)
 CORS(app, support_credentials=True)
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=GOOGLE_API_KEY)
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=GOOGLE_API_KEY)
 
 context_extraction_prompt = PromptTemplate.from_template("""
 /*
